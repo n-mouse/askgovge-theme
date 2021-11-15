@@ -7,6 +7,24 @@
 #
 Rails.configuration.to_prepare do
 
+  InfoRequest.class_eval do
+    def well_formed_title?
+      true
+    end
+  end
+   
+  OutgoingMessage.class_eval do
+    def body_uses_mixed_capitals
+      true
+    end
+  end
+   
+  Comment.class_eval do
+    def check_body_uses_mixed_capitals
+      true
+    end
+  end
+
   # Example of adding a default text to each message
   # OutgoingMessage.class_eval do
   #   # Add intro paragraph to new request template
