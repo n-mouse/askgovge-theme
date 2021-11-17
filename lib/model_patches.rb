@@ -24,6 +24,18 @@ Rails.configuration.to_prepare do
       true
     end
   end
+  
+  PublicBodyDerivedFields.class_eval do
+    def set_first_letter
+      unless name.blank?
+        # we use a regex to ensure it works with utf-8/multi-byte
+        new_first_letter = name.scan(/^./mu)[0]
+        if new_first_letter != first_letter
+          self.first_letter = new_first_letter
+        end
+      end
+    end
+  end
 
   # Example of adding a default text to each message
   # OutgoingMessage.class_eval do
