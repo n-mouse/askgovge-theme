@@ -12,10 +12,16 @@ Rails.configuration.to_prepare do
       long_cache
 
       @tag = params[:tag] || 'all'
-      @tag = @tag if @tag.scan(/./mu).size == 1
+      @locale = AlaveteliLocalization.locale
+      
+      if @locale == "ka"
+        @tag = @tag if @tag.scan(/./mu).size == 1
+      else
+        @tag = @tag.upcase if @tag.scan(/./mu).size == 1
+      end
 
       @country_code = AlaveteliConfiguration.iso_country_code
-      @locale = AlaveteliLocalization.locale
+      
 
       AlaveteliLocalization.with_locale(@locale) do
         @public_bodies = PublicBody.visible.
