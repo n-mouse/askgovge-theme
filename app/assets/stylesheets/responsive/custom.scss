@@ -40,7 +40,7 @@
 .js-loaded {
   .account-link {
     &:after {
-      border-top-color: rgba(255,255,255,0.4);
+      border-top-color: #7645d8;
     }
   }
 }
@@ -97,12 +97,12 @@
 .sign_in_link,
 .sign_in_link:link,
 .sign_in_link:visited {
-  color: #fff;
+  color: #7645d8;
   text-decoration: none;
   &:hover,
   &:active,
   &:focus {
-    color: #fff;
+    color: #7645d8;
   }
 }
 
@@ -400,8 +400,7 @@ a.link_button_green_large {
 
 p.locale-list-trigger {
   margin-bottom: 0;
-  color: $color_white;
-  color: rgba(255, 255, 255, 0.8);
+  color: #7645d8;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     margin-top: 0;
     border: 1px solid desaturate(lighten($color_primary, 3%), 5%);
@@ -415,7 +414,7 @@ p.locale-list-trigger {
   position: relative;
   z-index: 999;
   border-radius: 3px;
-  color: $color_white;
+  color: #7645d8;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     padding: 0.66em 2em 0.66em 0.66em;
   }
@@ -430,9 +429,9 @@ p.locale-list-trigger {
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
     @include ie8 {
-      border-top: 5px solid $color_white;
+      border-top: 5px solid #7645d8;
     }
-    border-top: 5px solid rgba(255,255,255,0.4);
+    border-top: 5px solid #7645d8;
   }
 }
 
