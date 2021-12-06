@@ -1,0 +1,50 @@
+<div class="footer" id="footer" role="contentinfo">
+  <div class="row">
+    <div class="footer__about">
+      <h2>Askgov.ge</h2>
+      <ul class="about__contact-links">
+        <li>
+          <%= link_to _('Contact us'), help_contact_path %>
+        </li>
+        <li>
+          <%= link_to _('Help'), help_path %>
+        </li>
+        <li>
+          <%= link_to _('Privacy and cookies'), help_privacy_path %>
+        </li>
+        <li>
+          <%= link_to _('API'), help_api_path %>
+        </li>
+        <% if feature_enabled?(:pro_pricing) %>
+        <li>
+          <%= link_to _('{{pro_site_name}} Terms',
+                        pro_site_name: pro_site_name),
+                        pro_page_path(:id => 'legal') %>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__final">
+    <div class="row">
+    <ul class="about__partner-links">
+    <li>
+    <%= link_to image_tag("partners/forset.png"), "https://forset.ge" %>
+   </li>
+    <li>
+      <%= link_to image_tag("partners/internews.png"), "https://internews.eu" %>
+    </li>
+    <li>
+      <%= link_to image_tag("partners/blue.png"), "https://idfi.ge" %>
+    </li>
+    <li>
+      <%= link_to image_tag("partners/eu.png"), "https://www.opengovpartnership.org/" %>
+    </li>
+  </ul>  
+    </div>
+    <div class="row disclaimer">
+      <p>This website has been produced with the financial assistance of the European Union. The
+      contents of this document are the sole responsibility of ForSet and can under no circumstances be regarded as reflecting the position of the European Union</p>
+    </div>
+  </div>
+</div>

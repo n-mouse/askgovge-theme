@@ -574,11 +574,11 @@ p.locale-list-trigger {
 
 /* Footer */
 #footer {
-  background-color: $color_neutral_dark;
-  color: darken($color_neutral_light, 10%);
+  background-color: #e8deff;
+  color: $color_neutral_dark;
   a {
     text-decoration: none;
-    color: $color_white;
+    color: $color_neutral_dark;
     &:hover,
     &:active,
     &:focus {
@@ -590,13 +590,41 @@ p.locale-list-trigger {
 
 .footer__about {
   h2 {
-    color: $color_white;
+    color: $color_neutral_dark;
   }
 }
 
 .footer__final {
   .row {
     border-top: 1px solid lighten($color_neutral_dark, 6%);
+  }
+}
+
+.about__partner-links {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 20px 0;
+  flex-wrap: wrap;
+  li {
+    list-style: none;
+    padding: 10px 8px;
+  }
+  li:first-child {
+    padding-left: 0;
+  }
+  li:last-child {
+    padding-right: 0;
+  }
+}
+
+@media( max-width: $main_menu-mobile_menu_cutoff ){
+  .about__partner-links {
+    justify-content: center;
+  }
+  .disclaimer {
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
