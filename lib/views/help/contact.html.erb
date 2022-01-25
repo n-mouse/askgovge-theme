@@ -9,7 +9,7 @@
   <% if !flash[:notice] %>
     <h2>დაუკავშირდი საჯარო დაწესებულებას ოფიციალური ინფორმაციის მისაღებად</h2>
     <ul>
-      <li>ეწვიე<a href="<%= new_request_path %>">ამ ბმულს </a> საჯარო დაწესებულებებიდან ინფორმაციის გამოსათხოვად.</li>
+      <li>ეწვიე <a href="<%= new_request_path %>">ამ ბმულს </a> საჯარო დაწესებულებებიდან ინფორმაციის გამოსათხოვად.</li>
 
       <li>
       შენს შესახებ არსებული ინფორმაციის გამოთხოვა გსურს? წაიკითხე <a href="https://askgov.ge/ka/help/requesting#data_protection">დახმარების გვერდი</a>.
@@ -25,7 +25,8 @@
       სანამ მოგვწერ, გთხოვთ, რომ ჯერ <a href="<%= help_about_path %>">დახმარების გვერდი</a> წაიკითხო, რადგან შეიძლება ასე უფრო სწრაფად მიიღო პასუხი შენს კითხვაზე.
       </li>
 
-      <li>სიამოვნებით მოვისმენთ შენს გამოცდილებას ამ ვებგვერდის გამოყენებასთან დაკავშირებით. ჩვენთან დასაკავშირებლად შეგიძლია შეავსო ეს ფორმა ან გამოგვიგზავნო შეტყობინება მისამართზე contact@askgov.ge</a>
+      <li>სიამოვნებით მოვისმენთ შენს გამოცდილებას ამ ვებგვერდის გამოყენებასთან დაკავშირებით. ჩვენთან დასაკავშირებლად შეგიძლია შეავსო ეს ფორმა ან გამოგვიგზავნო შეტყობინება 
+      მისამართზე info@forset.ge</a>
       </li>
 
       <li>ჩვენ <strong>სამოქალაქო ორგანიზაცია</strong> ვართ და არ წარმოვადგენთ არანაირ სამთავრობო უწყებას.</li>
@@ -63,20 +64,6 @@
     <%= f.text_field :comment %>
   </p>
 
-  <% if !@last_request.nil? %>
-    <p>
-      <label class="form_label" for="contact_message">Include link to request:</label>
-      <%=request_link(@last_request) %>
-      <%= submit_tag "remove", :name => 'remove' %>
-    </p>
-  <% end %>
-  <% if !@last_body.nil? %>
-    <p>
-      <label class="form_label" for="contact_message">Include link to authority:</label>
-      <%=public_body_link(@last_body) %>
-      <%= submit_tag "remove", :name => 'remove' %>
-    </p>
-  <% end %>
 
   <p class="form_note">
   ჩვენ მხოლოდ <strong>ტექნიკურ პრობლემებთან</strong> ან ინფორმაციის საჯაროობასთან დაკავშირებულ საკითხებზე შეგვიძლია დაგეხმაროთ. 
@@ -85,7 +72,7 @@
 
   <div class="form_button">
     <%= hidden_field_tag(:submitted_contact_form, 1) %>
-    <%= submit_tag "Send message to the charity", :data => { :disable_with => "Sending..." } %>
+    <%= submit_tag "გამოგვიგზავნე შეტყობინება", :data => { :disable_with => "Sending..." } %>
     &lt;-- ამ ვებგვერდს ვმართავთ ჩვენ და არა მთავრობა!
   </div>
 
