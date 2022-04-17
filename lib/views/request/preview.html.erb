@@ -52,6 +52,23 @@
           
         </div>
         <% if @user && @user.is_admin? && @user.name=="Signature Testing User" %>
+          <p>
+            Most public bodies require a signature and additional information to be provided with the information
+            request. If you want, you can add the information and your signature here. We do not keep your private information and your signature
+            after the request is sent.
+          </p>
+          <p>
+            <%= o.label :address, "Address:", class: "form_label" %>  
+            <%= o.text_field :address %>
+          </p>
+          <p>
+            <%= o.label :phone, "Phone number:", class: "form_label" %> 
+            <%= o.telephone_field :phone, style:"width:400px;max-width:100%" %>
+          </p>
+          <p>
+            <%= o.label :idnumber, "ID number:", class: "form_label" %> 
+            <%= o.text_field :idnumber, style:"width:400px;max-width:100%" %>
+          </p>
           <div class="signature-pad">
             <%= o.signature_field :signature %>
           </div>

@@ -139,14 +139,19 @@ Rails.configuration.to_prepare do
 		
 		signum = false
 		
-		if @user && @user.is_admin?
+		if @user && @user.is_admin? && @user.name=="Signature Testing User"
+		  request_address = "<p><strong>Address</strong>: "+helpers.sanitize(params[:outgoing_message][:address],tags:[], attributes:[])+"</p>" || ""
+		  request_phone = "<p><strong>Phone</strong>: "+helpers.sanitize(params[:outgoing_message][:phone],tags:[], attributes:[])+"</p>" || ""
+		  request_idnumber = "<p><strong>ID number</strong>: "+helpers.sanitize(params[:outgoing_message][:idnumber],tags:[], attributes:[])+"</p>" || ""
 		  if params[:outgoing_message][:signature]
 		    signum = @info_request.id.to_s+"-"+SecureRandom.hex(10).to_s;
 		    request_uri = URI::Data.new(params[:outgoing_message][:signature])
-		    request_text = ActionController::Base.helpers.simple_format(params[:outgoing_message][:body])
-		    request_html = "<!DOCTYPE html><html><head><title>Info request</title></head><body>#{request_text}<br><p><img src='#{request_uri}'/></p></body></html>"
-		    kit = PDFKit.new(request_html, :page_size => 'Letter', :enable_local_file_access => true, :log_level => "info")
-		    file = kit.to_file("tmp/pdf/pdf-#{signum}.pdf")
+		    request_text = helpers.sanitize(helpers.simple_format(params[:outgoing_message][:body]),tags:['br','p'])
+		    request_html = "<!DOCTYPE html><html><head><title>Info request</title></head><body>#{request_text}<br>
+		    #{request_address}#{request_phone}#{request_idnumber}
+		    <p><img src='#{request_uri}'/></p></body></html>"
+		    request_kit = PDFKit.new(request_html, :page_size => 'Letter', :disable_local_file_access => true, :disable_javascript => true)
+		    request_file = request_kit.to_file("tmp/pdf/pdf-#{signum}.pdf")
 		  end
 		end
 
