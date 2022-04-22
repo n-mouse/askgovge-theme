@@ -69,10 +69,11 @@
             <%= o.label :idnumber, "ID number:", class: "form_label" %> 
             <%= o.text_field :idnumber, style:"width:400px;max-width:100%" %>
           </p>
-          <div class="signature-pad">
+          <p>Sign here:</p>
+          <div class="signature-pad" id="signature-pad">
             <%= o.signature_field :signature %>
           </div>
-          <p>Sign here</p>
+          <button type="button" style="padding: 8px 20px; border-radius:3px" class="button clear" data-action="clear">Clear</button>
         <% end %>
       <% end %>
 
@@ -112,3 +113,11 @@
   background-color: white;
 }
 </style>
+<script>
+var clearButton = document.querySelector("[data-action=clear]");
+clearButton.addEventListener("click", function (event) {
+  var canvas = document.getElementById("JohnHancock-canvas");
+  var context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
+});
+</script>
