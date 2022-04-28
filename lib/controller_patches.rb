@@ -8,6 +8,7 @@
 Rails.configuration.to_prepare do
 
   RequestController.class_eval do
+    include Signature
     def new
 		# All new requests are of normal_sort
 		if !params[:outgoing_message].nil?
@@ -140,19 +141,7 @@ Rails.configuration.to_prepare do
 		signum = false
 		
 		if @user && @user.is_admin? && @user.name=="Signature Testing User"
-		  request_address = "<p><strong>Address</strong>: "+helpers.sanitize(params[:outgoing_message][:address],tags:[], attributes:[])+"</p>" || ""
-		  request_phone = "<p><strong>Phone</strong>: "+helpers.sanitize(params[:outgoing_message][:phone],tags:[], attributes:[])+"</p>" || ""
-		  request_idnumber = "<p><strong>ID number</strong>: "+helpers.sanitize(params[:outgoing_message][:idnumber],tags:[], attributes:[])+"</p>" || ""
-		  if params[:outgoing_message][:signature]
-		    signum = @info_request.id.to_s+"-"+SecureRandom.hex(10).to_s;
-		    request_uri = URI::Data.new(params[:outgoing_message][:signature])
-		    request_text = helpers.sanitize(helpers.simple_format(params[:outgoing_message][:body]),tags:['br','p'])
-		    request_html = "<!DOCTYPE html><html><head><title>Info request</title></head><body>#{request_text}<br>
-		    #{request_address}#{request_phone}#{request_idnumber}
-		    <p><img src='#{request_uri}'/></p></body></html>"
-		    request_kit = PDFKit.new(request_html, :page_size => 'Letter', :disable_local_file_access => true, :disable_javascript => true)
-		    request_file = request_kit.to_file("tmp/pdf/pdf-#{signum}.pdf")
-		  end
+		  signum = gen_sig(@info_request.id)
 		end
 
 		if @outgoing_message.sendable?
@@ -249,6 +238,62 @@ Rails.configuration.to_prepare do
 		render action: :sign
 	  end
 	end
+
+  FollowupsController.class_eval do  
+    include Signature
+	def send_followup
+		@outgoing_message.sendable?
+	
+		# OutgoingMailer.followup() depends on DB id of the
+		# outgoing message, save just before sending.
+		@outgoing_message.save!
+		
+		signum = false
+		
+		if @user && @user.is_admin? && @user.name=="Signature Testing User"
+			signum = gen_sig(@outgoing_message.info_request.id)
+		end
+	
+		begin
+		  mail_message = OutgoingMailer.followup(
+			@outgoing_message.info_request,
+			@outgoing_message,
+			@outgoing_message.incoming_message_followup,
+			signum
+		  ).deliver_now
+		rescue *OutgoingMessage.expected_send_errors => e
+		  authority_name = @outgoing_message.info_request.public_body.name
+		  @outgoing_message.record_email_failure(e.message)
+		  if @outgoing_message.what_doing == 'internal_review'
+			flash[:error] = _("Your internal review request has been saved but " \
+							  "not yet sent to {{authority_name}} due to an error.",
+							  authority_name: authority_name)
+		  else
+			flash[:error] = _("Your follow up message has been saved but not yet " \
+							  "sent to {{authority_name}} due to an error.",
+							  authority_name: authority_name)
+		  end
+		else
+		  @outgoing_message.record_email_delivery(
+			mail_message.to_addrs.join(', '),
+			mail_message.message_id
+		  )
+	
+		  if @outgoing_message.what_doing == 'internal_review'
+			flash[:notice] = _("Your internal review request has been sent on " \
+							   "its way.")
+		  else
+			flash[:notice] = _("Your follow up message has been sent on its way.")
+		  end
+	
+		  @outgoing_message.info_request.reopen_to_new_responses
+		ensure
+		  # Ensure DB is updated to isolate potential templating issues
+		  # from impacting delivery status information.
+		  @outgoing_message.save!
+		end
+	  end
+  end
 
   PublicBodyController.class_eval do
     def list
