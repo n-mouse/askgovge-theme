@@ -1,0 +1,28 @@
+# Your theme's locale files will override the core locale files.  This
+# is a good place to put both translations specific to your theme, and
+# "translations" of the core English words (e.g. you might want to
+# call FOI "RTI" throughougout, like this:
+#
+msgid "Most public bodies require a signature and additional information to be provided with the information request. If you want, you can add the information and your signature here."
+msgstr "საჯარო დაწესებულებების უმეტესობა ხელმოწერას და დამატებითი ინფორმაციის მიწოდებას ითხოვს ინფორმაციის გამოთხოვისას. თუ გსურთ, შეგიძლიათ დაამატოთ თქვენი ინფორმაცია და ხელმოწერა აქ."
+      
+msgid "We do not keep your private information and your signature after the request is sent."
+msgstr "ჩვენ არ ვინახავთ თქვენს პირად ინფორმაციას და ხელმოწერას მოთხოვნის გაგზავნის შემდეგ."
+
+msgid "Address:"
+msgstr "მისამართი"
+
+msgid "Phone number:"
+msgstr "ტელეფონის ნომერი"
+
+msgid "ID number:"
+msgstr "პირადობის ნომერი"
+
+msgid "Sign here:"
+msgstr "ხელი მოაწერეთ აქ"
+
+msgid "You have to agree to processing of your personal data, otherwise we won't be able to create your account"
+msgstr "გამოვხატავ თანხმობას, რომ AskGov-ის ვებგვერდმა საქართველოს კანონმდებლობით დადგენილი წესით და პირობებით, დაამუშაოს ჩემი პერსონალური ინფორმაცია"
+
+msgid "Clear"
+msgstr "გასუფთავება"

@@ -52,28 +52,28 @@
           
         </div>
         <% if @user && @user.is_admin? && @user.name=="Signature Testing User" %>
+        <p>
+        <%= _('Most public bodies require a signature and additional information to be provided with the information request. If you want, you can add the information and your signature here.') %>
+        <br>
+        <%= _('We do not keep your private information and your signature after the request is sent.') %>
+        </p>
           <p>
-            Most public bodies require a signature and additional information to be provided with the information
-            request. If you want, you can add the information and your signature here. We do not keep your private information and your signature
-            after the request is sent.
-          </p>
-          <p>
-            <%= o.label :address, "Address:", class: "form_label" %>  
+            <%= o.label :address, _('Address:'), class: "form_label" %>  
             <%= o.text_field :address %>
           </p>
           <p>
-            <%= o.label :phone, "Phone number:", class: "form_label" %> 
+            <%= o.label :phone, _('Phone number:'), class: "form_label" %> 
             <%= o.telephone_field :phone, style:"width:400px;max-width:100%" %>
           </p>
           <p>
-            <%= o.label :idnumber, "ID number:", class: "form_label" %> 
+            <%= o.label :idnumber, _('ID number:'), class: "form_label" %> 
             <%= o.text_field :idnumber, style:"width:400px;max-width:100%" %>
           </p>
-          <p>Sign here:</p>
+          <p><%= _('Sign here:') %></p>
           <div class="signature-pad" id="signature-pad">
             <%= o.signature_field :signature %>
           </div>
-          <button type="button" style="padding: 8px 20px; border-radius:3px" class="button clear" data-action="clear">Clear</button>
+          <button type="button" style="padding: 8px 20px; border-radius:3px" class="button clear" data-action="clear"><%=_('Clear')%></button>
         <% end %>
       <% end %>
 
