@@ -51,7 +51,6 @@
           <p class="event_actions"></p>
           
         </div>
-        <% if @user && @user.is_admin? && @user.name=="Signature Testing User" %>
         <p>
         <%= _('Most public bodies require a signature and additional information to be provided with the information request. If you want, you can add the information and your signature here.') %>
         <br>
@@ -74,7 +73,6 @@
             <%= o.signature_field :signature %>
           </div>
           <button type="button" style="padding: 8px 20px; border-radius:3px" class="button clear" data-action="clear"><%=_('Clear')%></button>
-        <% end %>
       <% end %>
 
       <% if @render_recaptcha %>

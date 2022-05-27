@@ -140,9 +140,9 @@ Rails.configuration.to_prepare do
 		
 		signum = false
 		
-		if @user && @user.is_admin? && @user.name=="Signature Testing User"
-		  signum = gen_sig(@info_request.id)
-		end
+		#if @user && @user.is_admin? && @user.name=="Signature Testing User"
+		signum = gen_sig(@info_request.id)
+		#end
 
 		if @outgoing_message.sendable?
 		  begin
