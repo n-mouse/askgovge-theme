@@ -139,17 +139,21 @@ Rails.configuration.to_prepare do
 		@info_request.save!
 		
 		signum = false
+		sendcopy = "0"
 		
-		#if @user && @user.is_admin? && @user.name=="Signature Testing User"
-		signum = gen_sig(@info_request.id)
-		#end
+		if @user && @user.is_admin? #&& @user.name=="Signature Testing User"
+		  sendcopy = params[:outgoing_message][:sendcopy]
+		end
+		
+		signum = gen_sig(@info_request.id, @info_request.idhash)
 
 		if @outgoing_message.sendable?
 		  begin
 			mail_message = OutgoingMailer.initial_request(
 			  @outgoing_message.info_request,
 			  @outgoing_message,
-			  signum
+			  signum,
+			  sendcopy
 			).deliver_now
 		  rescue *OutgoingMessage.expected_send_errors => e
 			# Catch a wide variety of potential ActionMailer failures and
