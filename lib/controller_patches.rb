@@ -141,9 +141,7 @@ Rails.configuration.to_prepare do
 		signum = false
 		sendcopy = "0"
 		
-		if @user && @user.is_admin? #&& @user.name=="Signature Testing User"
-		  sendcopy = params[:outgoing_message][:sendcopy]
-		end
+		sendcopy = params[:outgoing_message][:sendcopy]
 		
 		signum = gen_sig(@info_request.id, @info_request.idhash)
 
