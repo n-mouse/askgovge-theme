@@ -970,3 +970,8 @@ dt {
 .pro-pill {
   background-color: desaturate(darken($color_secondary, 10%), 5%);
 }
+
+// Front page
+.homepage-hero .intro__browse {
+  line-height: 1.2;
+}
