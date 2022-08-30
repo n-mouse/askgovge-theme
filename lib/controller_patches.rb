@@ -143,7 +143,7 @@ Rails.configuration.to_prepare do
 		
 		sendcopy = params[:outgoing_message][:sendcopy]
 		
-		signum = gen_sig(@info_request.id, @info_request.idhash)
+		signum = gen_sig(@info_request.id, InfoRequest.hash_from_id(@info_request.id))
 
 		if @outgoing_message.sendable?
 		  begin
