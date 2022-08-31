@@ -73,10 +73,6 @@
             <%= o.signature_field :signature %>
           </div>
           <button type="button" style="padding: 8px 20px; border-radius:3px" class="button clear" data-action="clear"><%=_('Clear')%></button>
-            <p style="display: flex; margin-top: 1em">
-              <%= o.check_box :sendcopy, style: "margin: unset" %>
-              <%= o.label :sendcopy, _('I want a copy of the request sent to my email'), class: "form_label" %>  
-            </p>
       <% end %>
 
       <% if @render_recaptcha %>

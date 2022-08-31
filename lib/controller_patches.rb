@@ -139,9 +139,6 @@ Rails.configuration.to_prepare do
 		@info_request.save!
 		
 		signum = false
-		sendcopy = "0"
-		
-		sendcopy = params[:outgoing_message][:sendcopy]
 		
 		signum = gen_sig(@info_request.id, InfoRequest.hash_from_id(@info_request.id))
 
@@ -151,7 +148,6 @@ Rails.configuration.to_prepare do
 			  @outgoing_message.info_request,
 			  @outgoing_message,
 			  signum,
-			  sendcopy
 			).deliver_now
 		  rescue *OutgoingMessage.expected_send_errors => e
 			# Catch a wide variety of potential ActionMailer failures and
