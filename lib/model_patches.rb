@@ -7,6 +7,54 @@
 #
 Rails.configuration.to_prepare do
 
+ IncomingMessage.class_eval do
+
+      def get_body_for_html_display(collapse_quoted_sections = true)
+        text = get_main_body_text_unfolded
+        folded_quoted_text = get_main_body_text_folded
+
+        if collapse_quoted_sections
+          text = folded_quoted_text
+        end
+        text = MySociety::Format.simplify_angle_bracketed_urls(text)
+        text = CGI.escapeHTML(text)
+        text = MySociety::Format.make_clickable(text, :contract => 1)
+
+
+        email_pattern = Regexp.escape(_("email address"))
+        mobile_pattern = Regexp.escape(_("mobile number"))
+        text.gsub!(/\[(#{email_pattern}|#{mobile_pattern})\]/,
+                   '[<a href="/help/officers#mobiles">\1</a>]')
+
+        if collapse_quoted_sections
+          text = text.gsub(/(\s*FOLDED_QUOTED_SECTION\s*)+/m, "FOLDED_QUOTED_SECTION")
+          text.strip!
+          if text == "FOLDED_QUOTED_SECTION"
+            text = "[Subject only] " + CGI.escapeHTML(self.subject || '') + text
+          end
+          text = text.gsub(/FOLDED_QUOTED_SECTION/, "\n\n" + '<span class="unfold_link"><a href="?unfold=1#incoming-'+self.id.to_s+'">'+_("show quoted sections")+'</a></span>' + "\n\n")
+        else
+          if folded_quoted_text.include?('FOLDED_QUOTED_SECTION')
+            text = text + "\n\n" + '<span class="unfold_link"><a href="?#incoming-'+self.id.to_s+'">'+_("hide quoted sections")+'</a></span>'
+          end
+        end
+        text.strip!
+
+        text = ActionController::Base.helpers.simple_format(text)
+        #if text.match(/This is the mail system at host askgov.ge/)
+          #if text.match(/Try resending the message in a few minutes/)
+            #text = "<p class='delivery-error'>წერილის მიწოდება დროებითი ტექნიკური ხარვეზის გამო ვერ მოხერხდა. მოგვიანებით, გაგზავნას კიდევ ერთხელ ვცდით</p>"
+          if text.match(/I'm sorry to (have to )?inform you that/) || text.match(/email address you entered couldn't be found/)
+            text = "<p class='delivery-error'>გაურკვეველი ტექნიკური მიზეზის გამო, წერილის მიწოდება ვერ მოხერხდა</p>"
+          end
+        #end
+        text.html_safe
+      end
+
+    end
+
+
+
   InfoRequest.class_eval do
     def well_formed_title?
       true
