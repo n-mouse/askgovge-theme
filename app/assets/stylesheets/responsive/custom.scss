@@ -813,6 +813,11 @@ dt {
 }
 
 /* Front page */
+
+.homepage-hero .intro__browse {
+  line-height: 1.2;
+}
+
 /* Drop the extract indentation on small screens */
 #frontpage_examples {
   .excerpt {
@@ -971,7 +976,13 @@ dt {
   background-color: desaturate(darken($color_secondary, 10%), 5%);
 }
 
-// Front page
-.homepage-hero .intro__browse {
-  line-height: 1.2;
+
+.iconmoon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+  margin-bottom: -1px;
 }
