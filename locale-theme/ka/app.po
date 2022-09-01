@@ -26,3 +26,6 @@ msgstr "გამოვხატავ თანხმობას, რომ As
 
 msgid "Clear"
 msgstr "გასუფთავება"
+
+msgid "A copy of the request will be emailed to you"
+msgstr "განცხადების ასლს პირად ელ-ფოსტაზე მიიღებ"

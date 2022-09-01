@@ -98,6 +98,7 @@
         <%= submit_tag _("Send and publish request"), :data => { :disable_with => _("Sending...") },
                                           :name => 'submit', :id => 'submit_button' %>
       </p>
+      <p style="padding-left:20px"><strong><%=_("A copy of the request will be emailed to you")%></strong></p>
 
       <% if !@info_request.tag_string.empty? %>
         <p><strong><%= _('Tags:') %></strong> <%=h @info_request.tag_string %></p>
