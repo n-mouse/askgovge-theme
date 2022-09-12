@@ -44,8 +44,10 @@ Rails.configuration.to_prepare do
         #if text.match(/This is the mail system at host askgov.ge/)
           if text.match(/Delivery has failed to these recipients or groups/)
             text = "<p class='delivery-error'>ტექნიკური მიზეზის გამო, წერილის მიწოდება ვერ მოხერხდა. გირჩევთ, ხელმეორედ სცადო გაგზავნა</p>"
-          elsif text.match(/I'm sorry to (have to )?inform you that/) || text.match(/email address you entered couldn't be found/)
+          elsif text.match(/I'm sorry to (have to )?inform you that/) || text.match(/email address you entered couldn't be found/) || text.match(/This is a permanent error/)
             text = "<p class='delivery-error'>გაურკვეველი ტექნიკური მიზეზის გამო, წერილის მიწოდება ვერ მოხერხდა</p>"
+          elsif text.match(/Delivery attempts will continue/)
+            text = "<p class='delivery-error'>წერილის მიწოდება დროებითი ტექნიკური ხარვეზის გამო ვერ მოხერხდა. მოგვიანებით, გაგზავნას კიდევ ერთხელ ვცდით</p>"
           end
         #end
         text.html_safe
