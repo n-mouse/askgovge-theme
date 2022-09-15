@@ -248,9 +248,9 @@ Rails.configuration.to_prepare do
 		
 		signum = false
 		
-		if @user && @user.is_admin? && @user.name=="Signature Testing User"
-			signum = gen_sig(@outgoing_message.info_request.id)
-		end
+		#if @user && @user.is_admin? && @user.name=="Signature Testing User"
+		signum = gen_sig(@outgoing_message.info_request.id, InfoRequest.hash_from_id(@outgoing_message.info_request.id))
+		#end
 	
 		begin
 		  mail_message = OutgoingMailer.followup(
