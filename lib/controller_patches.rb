@@ -184,61 +184,68 @@ Rails.configuration.to_prepare do
   end
 
   UserController.class_eval do 
-	def signup
-		# Make the user and try to save it
-		@user_signup = User.new(user_params(:user_signup))
-		error = false
-		if @request_from_foreign_country && !verify_recaptcha
-		  flash.now[:error] = _('There was an error with the reCAPTCHA. ' \
-								  'Please try again.')
-		  error = true
-		end
-		if params[:name_public_ok] != "1" 
-			flash.now[:error] = _("You have to agree to processing of your personal data, otherwise we won't be able to create your account")
-			error = true
-		end
-		@user_signup.valid?
-		user_alreadyexists = User.find_user_by_email(params[:user_signup][:email])
-		if user_alreadyexists
-		  # attempt to remove the 'already in use message' from the errors hash
-		  # so it doesn't get accidentally shown to the end user
-		  @user_signup.errors[:email].delete_if { |message| message == _("This email is already in use") }
-		end
-		if error || !@user_signup.errors.empty?
-		  # Show the form
-		  render :action => 'sign'
-		else
-		  if user_alreadyexists
-			already_registered_mail user_alreadyexists
-			return
-		  else
-			# New unconfirmed user
-	
-			# Rate limit signups
-			ip_rate_limiter.record(user_ip)
-	
-			if ip_rate_limiter.limit?(user_ip)
-			  handle_rate_limited_signup(user_ip, @user_signup.email) && return
-			end
-	
-			# Prevent signups from potential spammers
-			if spam_user?(@user_signup)
-			  handle_spam_user(@user_signup) do
-				render action: 'sign'
-			  end && return
-			end
-	
-			@user_signup.email_confirmed = false
-			@user_signup.save!
-			send_confirmation_mail @user_signup
-			return
-		  end
-		end
-	  rescue ActionController::ParameterMissing
-		flash[:error] = _('Invalid form submission')
-		render action: :sign
+    def signup
+      # Make the user and try to save it
+      @user_signup = User.new(user_params(:user_signup))
+      error = false
+      if @request_from_foreign_country && !verify_recaptcha
+        flash.now[:error] = _('There was an error with the reCAPTCHA. ' \
+                              'Please try again.')
+        error = true
+      end
+	  if params[:name_public_ok] != "1" 
+	    flash.now[:error] = _("You have to agree to processing of your personal data, otherwise we won't be able to create your account")
+	    error = true
 	  end
-	end
+      @user_signup.valid?
+      user_alreadyexists = User.find_user_by_email(params[:user_signup][:email])
+      if user_alreadyexists
+        # attempt to remove the 'already in use message' from the errors hash
+        # so it doesn't get accidentally shown to the end user
+        @user_signup.errors.delete(:email, :taken)
+      end
+      if error || !@user_signup.errors.empty?
+        # Show the form
+        render :action => 'sign'
+      else
+        if user_alreadyexists
+          already_registered_mail user_alreadyexists
+          return
+        else
+          # New unconfirmed user
+
+          # Block signups from suspicious countries
+          # TODO: Add specs (see RequestController#create)
+          # TODO: Extract to UserSpamScorer?
+          if blocked_ip?(country_from_ip, @user_signup)
+            handle_blocked_ip(@user_signup) && return
+          end
+
+          # Rate limit signups
+          ip_rate_limiter.record(user_ip)
+
+          if ip_rate_limiter.limit?(user_ip)
+            handle_rate_limited_signup(user_ip, @user_signup.email) && return
+          end
+
+          # Prevent signups from potential spammers
+          if spam_user?(@user_signup)
+            handle_spam_user(@user_signup) do
+              render action: 'sign'
+            end && return
+          end
+
+          @user_signup.email_confirmed = false
+          @user_signup.save!
+          send_confirmation_mail @user_signup
+          return
+        end
+      end
+    rescue ActionController::ParameterMissing
+      flash[:error] = _('Invalid form submission')
+      render action: :sign
+    end
+  end
 
   FollowupsController.class_eval do  
     include Signature
