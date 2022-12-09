@@ -4,10 +4,10 @@ $body-font-family: "Helvetica Neue", Arial, Helvetica, Helmet, Freesans, sans-se
 $base-font-size: 16px;
 
 // Specify the filename and dimensions of your logo file here
-$logo-filename: 'logo.png';
-$logo-highdpi-filename: 'logo@2.png'; //Should be at least 2x the size, in the same proportions
-$logo-width: 195px;
-$logo-height: 65px;
+$logo-filename: 'logo.svg';
+$logo-highdpi-filename: 'logo.svg'; //Should be at least 2x the size, in the same proportions
+$logo-width: 160px;
+$logo-height: 53px;
 
 $color_sand: #f3f1eb;
 $color_black: #333333;
@@ -34,7 +34,8 @@ $body-bg: $color_neutral_light;
 $body-font-color: $color_neutral_dark;
 $link-color: darken($color_blue, 20%);
 $action-color: $color_green;
-$font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+// $font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family: Helvetica;
 $form_input-bg: $color_white;
 $form-label-font-color: $color_black;
 
@@ -49,5 +50,5 @@ $notice-color: $color_green;
 $error-color: $color_red;
 $action-color: $color_orange;
 
-$banner_inner_bg: #e8deff;
-$topnav_bg: #7644d7;
+$banner_inner_bg: #E6DEFC;
+$topnav_bg: #552EBA;

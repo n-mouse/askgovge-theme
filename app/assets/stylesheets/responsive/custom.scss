@@ -40,14 +40,17 @@
 .js-loaded {
   .account-link {
     &:after {
-      border-top-color: #7645d8;
+      border-top-color: #552EBA;
     }
   }
 }
 
 .logged_in_bar {
+  float: right;
+  padding-right: 10px;
+
   @include respond-min( $main_menu-mobile_menu_cutoff ){
-    padding-top: 1.6em;
+    padding-top: 3em;
   }
 }
 
@@ -97,12 +100,12 @@
 .sign_in_link,
 .sign_in_link:link,
 .sign_in_link:visited {
-  color: #7645d8;
+  color: #6F4ACF;
   text-decoration: none;
   &:hover,
   &:active,
   &:focus {
-    color: #7645d8;
+    color: #552EBA;
   }
 }
 
@@ -286,13 +289,15 @@ a.link_button_green_large {
 
 .topnav {
   background-color: $topnav_bg;
-  @media( min-width: $main_menu-mobile_menu_cutoff ) {
-    box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.1);
-  }
+
 }
 
 #banner_inner {
   background-color: $banner_inner_bg;
+
+  .banner_site-title {
+    width: auto;
+  }
 }
 
 .site-title__logo {
@@ -308,13 +313,29 @@ a.link_button_green_large {
   }
 }
 
+.sign_in_link {
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .navigation {
   border-bottom: none;
   a {
     @extend %menu-item;
-    color: transparentize($color_white, 0.2);
+    color: $color_white;
+    font-size: 14px;
+
+    padding-top: 13px !important;
+    padding-bottom: 13px !important;
+
+    transition: background-color 0.2s ease-out;
+
+    &:hover {
+      background-color: #D98940;
+    }
+
     @media( min-width: $main_menu-mobile_menu_cutoff ) {
-      padding: 0.875em 1em;
+      padding: 0.875em 1em !important;
     }
   }
 
@@ -331,14 +352,43 @@ a.link_button_green_large {
   }
 }
 
-#navigation_search_button{
-  background-color: $color_red;
-  border: none;
-  transition: all 0.3s ease-out;
-  color: $color_primary;
-  border-radius: 0;
-  font-size: inherit;
+#navigation_search{
+  padding-top: 3em;
+  float: right;
+  width: auto;
+  
+
+  #navigation_search_form {
+    width: 300px;
+    position: relative;
+  }
+
+  #navigation_search_button{
+    background-color: $color_white;
+    border: none;
+    transition: all 0.3s ease-out;
+    //color: $color_primary;
+    color: #6F4ACF;
+    border-radius: 0;
+    font-size: 14px;
+    box-shadow: none;
+    border-radius: 25px;
+    width: 100%;
+    text-indent: 5px;
+  }
+
+
+    button[type="submit"] {
+      background:image-url('search.svg') transparent no-repeat center center;
+      position: absolute;
+      right: 3px;
+      width: 40px;
+      padding: 0;
+    }
+
 }
+
+
 
 .greeting {
   color: $body-bg;
@@ -393,14 +443,14 @@ a.link_button_green_large {
   @include respond-min($main_menu-mobile_menu_cutoff) {
     position: relative;
     background-color: transparent;
-    left: -50px;
-    padding-top: 2em;
+    left: 0;
+    padding-top: 3em;
   }
 }
 
 p.locale-list-trigger {
   margin-bottom: 0;
-  color: #7645d8;
+  color: #552EBA;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     margin-top: 0;
     border: 1px solid desaturate(lighten($color_primary, 3%), 5%);
@@ -414,24 +464,14 @@ p.locale-list-trigger {
   position: relative;
   z-index: 999;
   border-radius: 3px;
-  color: #7645d8;
+  color: #6F4ACF;
+  font-weight: 700 !important;
+  font-size: 14px !important;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     padding: 0.66em 2em 0.66em 0.66em;
   }
   &:after {
-    display: block;
-    position: absolute;
-    content: '';
-    right: 10px;
-    top: 12px;
-    width: 0;
-    height: 0;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    @include ie8 {
-      border-top: 5px solid #7645d8;
-    }
-    border-top: 5px solid #7645d8;
+    display: none;
   }
 }
 
@@ -449,9 +489,9 @@ p.locale-list-trigger {
 .locale-list .available-languages {
   display: none;
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    position: absolute;
-    top: 3.4375em;
-    left: 0.9375em;
+    position: relative;
+    top: 0;
+    left: 0;
     z-index: 1000;
     border-radius: 3px;
     font-size: 1em;
@@ -924,7 +964,7 @@ dt {
   position: relative;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     padding: 5em 0 8em;
-    background-image: image-url('homepage-background.jpg');
+    background-image: image-url('home-banner.png');
   }
 
   a {
