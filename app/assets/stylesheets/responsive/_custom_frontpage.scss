@@ -149,3 +149,95 @@
         }
     }
 }
+
+.homepage-how-it-works {
+    border: 0;
+}
+
+.homepage-how-it-works__hiw-content {
+    @media( min-width: $main_menu-mobile_menu_cutoff ) {
+
+        padding: 0;
+        width: 100%;
+        margin: 0 0 170px !important;
+
+        .hiw-content__headings {
+            text-align: left;
+
+            h2 {
+                font-size: 30px;
+                margin-top: 0;
+            }
+
+            .hiw__subtitle {
+                font-size: 16px;
+            }
+        }
+
+        .hiw-content__steps {
+            padding-top: 60px;
+        }
+
+        .steps__list.row {
+            margin: 0;
+            padding: 0;
+
+            li {
+                padding: 0 35px 0 0;
+                position: relative;
+
+                &:last-child {
+                    padding-right: 0;
+                }
+
+                .steps__step-box {
+                    box-shadow: none;
+                    border-radius: 30px;
+                    padding-top: 41px;
+                    height: 180px;
+
+
+                    p {
+                        font-size: 15px;
+                    }
+                }
+
+                .steps__step-number {
+                    width: 60px;
+                    height: 60px;
+                    // display: block;
+
+                    margin-left: 0;
+                    left: 35px;
+                    top: -30px;
+                    bottom: auto;
+
+                    p {
+                        font-size: 30px;
+                        line-height: 30px;
+                    }
+                }
+            }
+
+        }
+
+        .learn-more-foi {
+            margin-top: 22;
+            text-align: right;
+
+            a {
+                height: 60px;
+                line-height: 60px;
+                font-size: 18px;
+
+                padding: 0 35px;
+
+                background-color: transparent;
+
+                border: 1px solid $color_orange;
+                color: $color_orange;
+                border-radius: 30px;
+            }
+        }
+    }
+}
