@@ -320,6 +320,13 @@ a.link_button_green_large {
 
 .navigation {
   border-bottom: none;
+  
+  @media( min-width: $main_menu-mobile_menu_cutoff ) {
+    li.right {
+      float: right;
+    }
+  }
+
   a {
     @extend %menu-item;
     color: $color_white;
