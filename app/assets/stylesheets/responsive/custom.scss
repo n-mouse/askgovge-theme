@@ -1062,7 +1062,7 @@ dt {
 }
 
 .homepage-hero {
-  background-color: $color_neutral_dark;
+  background: transparent;
   background-image: image-url('homepage-background-small.jpg');
   background-repeat: no-repeat;
   background-position: center top;
@@ -1071,8 +1071,8 @@ dt {
   padding: 2em 0 5em;
   position: relative;
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    padding: 5em 0 8em;
-    background-image: image-url('home-banner.png');
+    padding: 5em 0 9em;
+    background-image: image-url('home-banner.png?v=2');
   }
 
   a {
@@ -1084,37 +1084,45 @@ dt {
     }
   }
 
-  .intro__title {
-    color: $color_white;
-    text-shadow: 0 1px 2px transparentize($color_black, 0.7);
+  .hero__new-request {
+    width: auto;
+    padding: 0;
   }
 
   .new-request__content {
-    background-color: $color_neutral_dark;
-    border-radius: 5px;
-    padding: 1.888888889em;
+    background-color: transparent;
+    //border-radius: 5px;
+    padding: 0;
   }
 
   .new-request__title {
     color: $color_white;
-    font-size: 1.4375em;
-    margin: 0 0 0.5em;
+    max-width: 550px;
+    font-size: 30px;
+    line-height: 40px;
+    margin: 0 0 15px;
   }
 
   .new-request__description {
-    color: transparentize($color_white, 0.2);
-    @include ie8 {
-      color: $color_white;
-    }
+    font-size: 16px;
+    color: $color_white;
+
+    margin: 0 0 22px;
   }
   .new-request__make-new-requests {
     @include button-base;
-    background-color: desaturate(darken($color_secondary, 10%), 5%);
+    background-color: $color_green;
     color: $color_white;
+    height: 60px;
+    line-height: 60px;
+    font-size: 18px;
+    padding: 0 40px;
+    border-radius: 30px;
+
     &:hover,
     &:active,
     &:focus {
-      background-color: darken($color_secondary, 20%);
+      background-color: darken($color_green, 10%);
     }
   }
 }
@@ -1141,3 +1149,7 @@ dt {
   font-size: 16px;
   color: #8a0c0c;
 }
+
+
+
+@import "responsive/_frontpage_stats";

@@ -1,24 +1,135 @@
 <div class="homepage-hero">
   <div class="row">
-    <div class="hero__intro">
-      <%= render :partial => "frontpage_intro_sentence" %>
-
-      <p class="intro__browse">
-        <%= _("Browse <a href=\"{{requests_url}}\">" \
-              "{{number_of_requests}} requests</a> to " \
-              "<a href=\"{{authorities_url}}\">" \
-              "{{number_of_authorities}} authorities</a>",
-            :requests_url => request_list_all_path,
-            :number_of_requests => number_with_delimiter(@number_of_requests),
-            :authorities_url => list_public_bodies_default_path,
-            :number_of_authorities => number_with_delimiter(@number_of_authorities)) %>
-      </p>
-    </div>
 
     <div class="hero__new-request">
       <div class="new-request__content">
         <%= render :partial => "new_request" %>
       </div>
     </div>
+    
   </div>
 </div>
+
+
+<div class="homepage-stats">
+  <div class="row firstline clearfix">
+
+        <div class="stats__intro">
+          <h2>გაეცანი გამოთხოვილ ინფორმაციას</h2>
+          <div class="description">
+            ყველა მოქალაქეს აქვს უფლება გამოითხოვოს ინფორმაცია, რომელსაც საჯარო დაწესებულებები ფლობენ. კანონი მათ ავალდებულებთ, რომ საჯარო ინფორმაცია გასცენ დაუყონებლივ ან არა უგვიანეს 10 დღისა.
+          </div>
+        </div>
+
+        <div class="stats__browse">
+
+            <a href="#" class="building">
+              <span class="count">323</span>
+              <span class="title">საჯარო დაწესებულება</span>
+            </a>
+
+            <a href="#" class="envelope">
+              <span class="count">504</span>
+              <span class="title">გამოთხოვილი ინფორმაცია</span>
+            </a>
+            
+        </div>
+
+  </div>
+
+  <div class="row tops clearfix">
+
+      <div class="list">
+        <h3>Top ორგანიზაციები</h3>
+
+          <a href="#" class="clearfix">
+              <div class="circle">
+                <span class="numb">223</span>
+                <span class="subtit">მოთხოვნა</span>
+              </div>
+              <div class="title">სტატისტიკის ეროვნული სამსახური</div>
+          </a>
+
+          <a href="#" class="clearfix">
+              <div class="circle">
+                <span class="numb">1</span>
+                <span class="subtit">მოთხოვნა</span>
+              </div>
+              <div class="title">ბუღალტრული აღრიცხვის, ანგარიშგებისა და აუდიტის სამინისტრო</div>
+          </a>
+
+          <a href="#" class="clearfix">
+              <div class="circle">
+                <span class="numb">44</span>
+                <span class="subtit">მოთხოვნა</span>
+              </div>
+              <div class="title">საქართველოს განათლებისა და მეცნიერების სამინისტრო</div>
+          </a>
+
+        </ul>
+      </div>
+
+      <div class="list">
+        <h3>Top ორგანიზაციები</h3>
+
+          <a href="#">
+              <div class="circle">
+                <span class="numb">17</span>
+                <span class="subtit">მოთხოვნა</span>
+              </div>
+              <div class="title">საცხობი</div>
+          </a>
+
+          <a href="#">
+              <div class="circle">
+                <span class="numb">1564</span>
+                <span class="subtit">მოთხოვნა</span>
+              </div>
+              <div class="title">ბუღალტრული აღრიცხვის, ანგარიშგებისა და აუდიტის სამინისტრო</div>
+          </a>
+
+          <a href="#">
+              <div class="circle">
+                <span class="numb">44</span>
+                <span class="subtit">მოთხოვნა</span>
+              </div>
+              <div class="title">საქართველოს განათლებისა და მეცნიერების სამინისტრო</div>
+          </a>
+
+        </ul>
+      </div>
+
+      <div class="list">
+        <h3>Top ორგანიზაციები</h3>
+
+          <a href="#" class="clearfix">
+              <div class="circle">
+                <span class="numb">223</span>
+                <span class="subtit">გამომწერი</span>
+              </div>
+              <div class="title">ბოძკინტების საამქრო</div>
+          </a>
+
+          <a href="#" class="clearfix">
+              <div class="circle">
+                <span class="numb">1</span>
+                <span class="subtit">გამომწერი</span>
+              </div>
+              <div class="title">პოლიციის ხარჯები 2012 და 2013 წლებში</div>
+          </a>
+
+          <a href="#" class="clearfix">
+              <div class="circle">
+                <span class="numb">44</span>
+                <span class="subtit">გამომწერი</span>
+              </div>
+              <div class="title">საქართველოს განათლებისა და მეცნიერების სამინისტრო</div>
+          </a>
+
+        </ul>
+      </div>
+
+  </div>
+
+</div>
+
