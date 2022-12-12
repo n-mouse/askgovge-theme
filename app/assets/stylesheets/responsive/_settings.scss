@@ -10,7 +10,7 @@ $logo-width: 160px;
 $logo-height: 53px;
 
 $color_sand: #f3f1eb;
-$color_black: #333333;
+$color_black: #000000;
 $color_orange: #f4a140;
 $color_blue: #4faded;
 $color_green: #62b356;
@@ -25,8 +25,8 @@ $color_mid_grey: #959287;
 $color_dark_grey: #6c6b68;
 
 $color_neutral_light: $color_sand;
-$color_neutral_dark: $color_black;
-$color_primary: $color_violet;
+$color_neutral_dark: #333333;
+$color_primary: #552eba;
 $color_secondary: $color_orange;
 
 $body-bg: $color_neutral_light;
@@ -52,3 +52,5 @@ $action-color: $color_orange;
 
 $banner_inner_bg: #E6DEFC;
 $topnav_bg: #552EBA;
+
+$color-hover: #FF7A00

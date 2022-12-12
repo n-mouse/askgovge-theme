@@ -432,6 +432,7 @@ a.link_button_green_large {
 
 /* LANGUAGE SWITCHER */
 #user_locale_switcher {
+  position: relative;
   background-color: $color_primary;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     background-color: transparent;
@@ -444,7 +445,10 @@ a.link_button_green_large {
     position: relative;
     background-color: transparent;
     left: 0;
-    padding-top: 3em;
+    margin-top: 3em;
+    padding: 0;
+    margin-left: 15px;
+    width: 90px;
   }
 }
 
@@ -453,6 +457,7 @@ p.locale-list-trigger {
   color: #552EBA;
   @include respond-min($main_menu-mobile_menu_cutoff) {
     margin-top: 0;
+    width: 100%;
     border: 1px solid desaturate(lighten($color_primary, 3%), 5%);
     border-radius: 3px;
     color: $link-color;
@@ -468,7 +473,8 @@ p.locale-list-trigger {
   font-weight: 700 !important;
   font-size: 14px !important;
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    padding: 0.66em 2em 0.66em 0.66em;
+    padding: 0.66em 0 0.66em 0;
+    text-indent: 0.66em;
   }
   &:after {
     display: none;
@@ -483,20 +489,22 @@ p.locale-list-trigger {
   @include respond-min($main_menu-mobile_menu_cutoff) {
     font-size: 0.8125em;
     line-height: 1em;
+    //padding-left: 0;
+    //padding-right: 0;
   }
 }
 
 .locale-list .available-languages {
   display: none;
   @include respond-min($main_menu-mobile_menu_cutoff) {
-    position: relative;
-    top: 0;
+    position: absolute;
+    top: 100%;
     left: 0;
     z-index: 1000;
     border-radius: 3px;
     font-size: 1em;
     width: 100%;
-    max-width: 10em;
+    //max-width: 10em;
   }
 
 }
@@ -614,7 +622,7 @@ p.locale-list-trigger {
 
 /* Footer */
 #footer {
-  background-color: #e8deff;
+  background-color: #E6DEFC;
   color: $color_neutral_dark;
   a {
     text-decoration: none;
@@ -622,33 +630,122 @@ p.locale-list-trigger {
     &:hover,
     &:active,
     &:focus {
-      color: lighten($color_primary, 10%);
+      color: #552EBA;
       text-decoration: underline;
     }
   }
 }
 
 .footer__about {
+  width: 100%;
+  color: $color_black;
+  padding-right: 0;
+  padding-left: 0;
+
   h2 {
-    color: $color_neutral_dark;
+    
+    font-size: 18px;
   }
+
+  .about__contact-links {
+    @media( min-width: $main_menu-mobile_menu_cutoff ) {
+
+      margin-left: -13px;
+      margin-bottom: 60px;
+
+      &>li {
+
+          position: relative;
+          display: inline-block;
+          padding-right: 13px;
+          margin-left: 13px;
+    
+          font-size: 14px;
+    
+          &:not(:last-child) {
+            &:after{
+              position: absolute;
+              top: 6px;
+              right: 0;
+              display: block;
+              content: " ";
+              width: 1px;
+              height: 12px;
+              background: $color-black;
+            }
+          }
+      }
+    }
+  } 
+
+  
+
 }
 
 .footer__final {
   .row {
-    border-top: 1px solid lighten($color_neutral_dark, 6%);
+    border-top: 1px solid rgba(51,51,51,0.64);
+
+    &.disclaimer {
+      border-top: 0;
+      padding-top: 2em;
+      padding-bottom: 2em;
+
+      p {
+        font-size: 13px;
+        color: #615A72;
+      }
+    }
   }
 }
 
 .about__partner-links {
-  display: flex;
-  justify-content: space-between;
+  display: block;
   margin: 0;
-  padding: 20px 0;
+  padding: 40px 0;
   flex-wrap: wrap;
   li {
     list-style: none;
     padding: 10px 8px;
+
+    @media( min-width: $main_menu-mobile_menu_cutoff ) {
+
+      float: left;
+      margin-right: 47px;
+      a img {
+        height: 41px;
+      }
+
+      &.socials {
+        float: right;
+        margin-top: -30px;
+        margin-right: 0;
+
+        span {
+          font-size: 13px;
+          color: #615A72;
+          display: block;
+          margin-bottom: 5px;
+        }
+
+        a {
+          display: block;
+          float: left;
+          width: 42px;
+          height: 42px;
+
+          &#footer_twitter{
+            background: image-url('footer-twitter.svg') transparent no-repeat center center;
+            margin-right: 12px;
+          }
+
+          &#footer_facebook{
+            background: image-url('footer-facebook.svg') transparent no-repeat center center;
+          }
+        }
+      }
+
+    }
   }
   li:first-child {
     padding-left: 0;
@@ -659,6 +756,10 @@ p.locale-list-trigger {
 }
 
 @media( max-width: $main_menu-mobile_menu_cutoff ){
+
+  display: flex;
+  justify-content: space-between;
+
   .about__partner-links {
     justify-content: center;
   }
