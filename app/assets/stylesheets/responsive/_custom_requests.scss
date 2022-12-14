@@ -259,3 +259,20 @@
     }
 
 }
+
+
+div.pagination {
+    margin-top: 60px;
+    font-size: 18px;
+
+    a,
+    .gap {
+        color: #187BD6;
+    }
+
+    .current,
+    .disabled {
+        font-style: normal;
+        color: #9C9C9C;
+    }
+}
