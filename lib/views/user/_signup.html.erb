@@ -26,12 +26,9 @@
             '<a href="{{url}}">you or the law tell us to</a>.',
             :url => help_privacy_path) %>
     </div>
-    <p class="form_item_note">
-      <%= check_box_tag("name_public_ok",1, false, class: 'css-checkbox') %>
-            <label for="name_public_ok" name="checkbox2_lbl" class="css-label lite-red-check"></label>
 
-      <strong>I agree</strong> to let the Askgov website collect and process my personal data
-    </p>
+    
+
     <p>
       <label class="form_label" for="user_signup_password"> <%= _('Password:') %></label>
       <%= password_field 'user_signup', 'password', { :size => 15, :tabindex => 30, :autocomplete => "off" } %>
@@ -44,6 +41,13 @@
     <p>
       <label class="form_label" for="user_signup_password_confirmation"> <%= _('Confirm password:') %></label>
       <%= password_field 'user_signup', 'password_confirmation', { :size => 15, :tabindex => 40, :autocomplete => "off" } %>
+    </p>
+
+    <p class="form_checkbox">
+      <%= check_box_tag("name_public_ok",1, false, class: 'css-checkbox') %>
+      <label for="name_public_ok" name="checkbox2_lbl" class="css-label lite-red-check">
+        <strong>I agree</strong> to let the Askgov website collect and process my personal data
+      </label>
     </p>
 
     <% if @request_from_foreign_country %>
