@@ -1,0 +1,261 @@
+#request_list {
+
+    #list-filter.list-filter {
+        margin-bottom: 7px;
+
+        .filter_container{
+            background-color: #fff;
+            border-radius: 30px;
+            padding: 30px 28px;
+            margin-top: 30px;
+            margin-bottom: 22px;
+    
+            h1 {
+                padding: 0;
+                margin: 0 0 55px;
+                font-size: 30px;
+            }
+    
+            .list-filter-item {
+    
+                label.title {
+                    color: #737373;
+                    font-size: 16px;
+                    margin-left: 15px;
+    
+                    &.datetitle {
+                        @include respond-min( $main_menu-mobile_menu_cutoff ){
+                            margin-left: 5px;
+                        }
+                    }
+                }
+    
+                .tiree {
+                    padding: 0 4px 0 5px;
+                }
+    
+                #query {
+                    width: 100%;
+                }
+                
+                @include respond-min( $main_menu-mobile_menu_cutoff ){
+                    float: left !important;
+                    padding-left: 8px !important;
+                    padding-right: 8px !important;
+                }
+    
+    
+                &.searchbar {
+                    @include grid-column(12);
+                    @include respond-min( $main_menu-mobile_menu_cutoff ){
+                        @include grid-column($columns:5,$float:right);
+        
+                    }
+                }
+    
+                &.datebar {
+                    @include grid-column(12);
+                    @include respond-min( $main_menu-mobile_menu_cutoff ){
+                        @include grid-column($columns:4,$float:right);
+        
+                    }
+                }
+    
+                &.buttonbar {
+                    @include grid-column(12);
+                    @include respond-min( $main_menu-mobile_menu_cutoff ){
+                        @include grid-column($columns:3,$float:right);
+                        
+                        input[type=submit] {
+                            margin-top: 28px;
+    
+                            width: 100%;
+                            text-indent: 10px;
+    
+                            background-image:image-url('search-white.svg');
+                            background-repeat: no-repeat;
+                            background-position: 30px 15px;
+                        }
+                    }
+                }
+    
+            }
+    
+    
+        }
+
+
+        .filter-request-types {
+            padding-left: 0.9375rem;
+            padding-right: 0.9375rem;
+            width: 100%;
+    
+            ul {
+                border: 0;
+                padding-left: 0;
+    
+                li {
+                    float: left;
+                    border: 0;
+                    padding: 0;
+                    margin-right: 7px;
+    
+                    span,
+                    a {
+                        box-shadow: none;
+                        border: 0;
+                        height: 35px;
+                        line-height: 35px;
+                        font-size: 13px;
+                        padding: 0 20px;
+                        border-radius: 20px;
+                    }
+    
+                    span {
+                        color: #fff;
+                        background-color: #737373;
+                    }
+                    a {
+                        color: #737373;
+                        background-color: #fff;
+    
+                        &:hover {
+                            color: #fff;
+                            background-color: #737373;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+
+    .results_section {
+        h2.foi_results {
+            font-size: 16px;
+            color: #737373;
+            font-weight: normal;
+            padding-bottom: 25px;
+
+            border-bottom: 1px solid #BEBEBE;
+
+            strong {
+                color: #333333;
+            }
+        }
+
+        .results_block .request_listing {
+            .request_left {
+
+                @include respond-min( $main_menu-mobile_menu_cutoff ){
+                    @include grid-column($columns:9);
+                }
+
+                .head {
+                    margin-bottom: 14px;
+
+                    a{
+                        color: #333333;
+                        font-size: 16px;
+                        line-height: 24px;
+                        margin-bottom: 14px;
+
+                        &:hover {
+                            color: #187BD6;
+                            text-decoration: none;
+                        }
+                    }
+                } 
+
+                .desc {
+                    font-style: normal;
+                    font-size: 13px;
+                    line-height: 19px;
+                    color: #737373;
+                    padding: 0;
+                }
+            }
+
+            .request_right {
+
+                font-size: 14px;
+                color: #9C9C9C;
+
+                @include respond-min( $main_menu-mobile_menu_cutoff ){
+                    @include grid-column($columns:3, $float:right);
+                }
+
+                .requester {
+                    .fromto {
+                        display: block;
+                        a {
+                            color: #187BD6;
+
+                            &:hover {
+                                text-decoration: none;
+                            }
+                        }
+
+                        span {
+                            width: 35px;
+                            display: inline-block;
+                        }
+
+                        &.date {
+                            margin-top: 13px;
+                        }
+                    }
+                }
+
+                .request-status {
+                    padding: 0;
+                    margin-bottom: 16px;
+
+                    i {
+                        float: left;
+                        
+                    }
+
+                    .statustitle {
+                        padding: 3px 0 0 8px;
+                        float: left;
+                    }
+                } 
+            }
+        }
+    }
+
+
+    .subscription {
+        text-align: center;
+
+        h2 {
+            margin-top: 50px;
+            font-size: 16px;
+            color: #333;
+            font-weight: normal;
+
+            margin-bottom: 18px;
+        }
+
+        .feed_link {
+            text-align: center;
+        }
+
+        .link_button_green {
+            margin: 0 auto;
+            width: 155px;
+            background:image-url('bell.svg') transparent no-repeat 23px 14px;
+            border: 1px solid $color_light_green;
+            color: $color_light_green;
+            text-indent: 25px;
+            margin-bottom: 35px;
+        }
+
+        .linkrss {
+            margin-bottom: 35px;
+        }
+    }
+
+}

@@ -153,7 +153,22 @@ form input[type="url"],
 form input[type="tel"],
 form input[type="number"] {
     border-radius: 0;
-    background-color: $form_input-bg;
+    box-shadow: none;
+    height: 44px;
+    line-height: 44px;
+    border: 1px solid #9C9C9C;
+    border-radius: 25px;
+    padding: 0 15px;
+    font-size: 16px;
+    
+    background-color: #fff;
+
+
+    &:focus {
+      background-color: #fff;
+    }
+
+
     /* Set a fixed height for text inputs in older IE 8 */
     @include ie8{
         height: 2.3125em;
@@ -162,11 +177,13 @@ form input[type="number"] {
     @include lte-ie7{
         height: 22px;
     }
+
+
 }
 
 input.use-datepicker[type=text] {
   width: 130px;
-  background:image-url('calendar.png') no-repeat 100px 5px $form_input-bg;
+  background:image-url('calendar.png') no-repeat 100px 9px $form_input-bg;
 }
 
 /* Button styles */
@@ -249,6 +266,11 @@ input.use-datepicker[type=text] {
 form input[type=submit], a.link_button_green, a.link_button_green_large {
   @include button-primary;
   text-decoration: none;
+  height: 44px;
+  line-height: 44px;
+  font-size: 14px;
+  border-radius: 25px;
+  padding: 0 25px;
 }
 
 a.link_button_green_large {
@@ -1152,5 +1174,17 @@ dt {
 
 
 
+
+
+.request_listing, .body_listing, .user_listing {
+  border-bottom: 1px solid #BEBEBE;
+}
+
+.request_listing {
+  margin-top: 20px;
+}
+
+
 @import "responsive/_custom_frontpage";
 @import "responsive/_custom_signin";
+@import "responsive/_custom_requests";

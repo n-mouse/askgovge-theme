@@ -29,3 +29,6 @@ msgstr "გასუფთავება"
 
 msgid "A copy of the request will be emailed to you"
 msgstr "განცხადების ასლს პირად ელ-ფოსტაზე მიიღებ"
+
+msgid "About {{count}} FOI requests found"
+msgstr "მოიძებნა <strong>{{count}}</strong> საჯარო ინფორმაციის მოთხოვნა"

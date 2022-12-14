@@ -15,6 +15,7 @@ $color_orange: #FF7A00;
 $color_deep_orange: #DC560A;
 $color_blue: #4faded;
 $color_green: #6FA957;
+$color_light_green: #60914C;
 $color_yellow: #ffd836;
 $color_red: #e04b4b;
 $color_violet: #a94ca6;
@@ -40,7 +41,7 @@ $font-family: Helvetica;
 $form_input-bg: $color_white;
 $form-label-font-color: $color_black;
 
-$button-bg: darken($color_green, 10%);
+$button-bg: $color_green;
 $button-color: $color_white;
 
 $status-success: darken($color_green, 18%);
