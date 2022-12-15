@@ -4,4 +4,13 @@
       jQuery(this).parent().toggleClass('active');
     });
   });
+
+
+
+
+  $(document).on('click','.sorter *',function(){
+        $(this).closest('.sorter').toggleClass('open');
+  });
+
+
 </script>
