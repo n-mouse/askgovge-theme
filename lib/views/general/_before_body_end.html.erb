@@ -9,7 +9,13 @@
 
 
   $(document).on('click','.sorter *',function(){
+      if ( $(this).closest('.sorter').hasClass('open') ) {
+        $('.sorter').removeClass('open');
+      } else {
+        $('.sorter').removeClass('open');
         $(this).closest('.sorter').toggleClass('open');
+      }
+        
   });
 
 
