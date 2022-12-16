@@ -1271,6 +1271,27 @@ dt {
   margin-top: 20px;
 }
 
+select,
+select:focus {
+  padding: 0 40px 0 20px;
+  height: 44px;
+  line-height: 44px;
+  border: 0;
+  border-radius: 25px;
+
+  color: #fff;
+  background-color: #9C9C9C;
+
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIiIGhlaWdodD0iNiIgdmlld0JveD0iMCAwIDEyIDYiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02IDZMMC44MDM4NDcgMy4xMDY5NmUtMDhMMTEuMTk2MiA4Ljg3NDM0ZS0wN0w2IDZaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K");
+  background-position: calc(100% - 20px) 20px;
+}
+
+
+
+
+
+
+
 
 @import "responsive/_custom_frontpage";
 @import "responsive/_custom_signin";

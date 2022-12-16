@@ -1,4 +1,4 @@
-#request_list {
+#request_list {§
 
     #list-filter.list-filter {
         margin-bottom: 7px;
@@ -145,7 +145,7 @@
             }
         }
 
-        .results_block .request_listing {
+        @at-root .request_listing {
             .request_left {
 
                 @include respond-min( $main_menu-mobile_menu_cutoff ){
@@ -456,3 +456,68 @@ div.pagination {
 
 }
 
+#user_profile_search {
+    h1#your_requests_title {
+        font-size: 30px;
+        line-height: 40px;
+        color: #333333;
+        margin-bottom: 45px;
+        margin-top: 60px;
+    }
+
+    h2#foi_requests {
+        padding-bottom: 13px;
+
+        font-size: 16px;
+        color: #737373;
+
+        border-bottom: 1px solid #BEBEBE;
+
+        strong {
+            color: #030303;
+        }
+    }
+
+    #search_form {
+        @include respond-min( $main_menu-mobile_menu_cutoff ){
+
+            height: 44px;
+            margin-bottom: 40px;
+
+            input#user_query {
+                width: 50%;
+                margin-right: 10px;
+            }
+
+            input[type=submit] {
+                width: calc(50% - 330px);
+                float: right;
+
+                text-indent: 10px;
+    
+                background-image:image-url('search-white.svg');
+                background-repeat: no-repeat;
+                background-position: 43px 15px;
+            }
+        }
+    }
+
+    .annotations_block {
+        padding-top: 110px;
+        margin-bottom: 300px;
+
+        h2 {
+            color: #000;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 16px;
+            color: #737373;
+        }
+    }
+
+
+
+
+}
