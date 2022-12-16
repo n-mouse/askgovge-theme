@@ -39,25 +39,112 @@
 
 .js-loaded {
   .account-link {
+    max-width: none;
+    padding: 10px 35px 10px 20px;
+
+    &.open {
+      border-top-right-radius: 22px;
+      border-top-left-radius: 22px;
+      background-color: #fff;
+      border-bottom: 1px solid #E9E9E9;
+    }
+
     &:after {
-      border-top-color: #552EBA;
+      border-top-color: #7645D8;
+      right: 18px;
     }
   }
 }
 
 .logged_in_bar {
   float: right;
-  padding-right: 10px;
+  padding-right: 0px;
+  padding-left: 0px;
 
   @include respond-min( $main_menu-mobile_menu_cutoff ){
     padding-top: 3em;
+    width: 258px !important;
   }
 }
 
 .logged-in-menu {
   @include respond-min( $main_menu-mobile_menu_cutoff ){
+    width: 258px !important;
+    right: 0 !important;
     color: black;
-    box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 15px 13px 0px rgba(0, 0, 0, 0.1);
+
+
+    border-bottom-right-radius: 10px !important;
+    border-bottom-left-radius: 10px !important;
+
+    padding: 14px 24px !important;
+
+
+    .profile-summary {
+      border-bottom: 0;
+      margin-bottom: 12px;
+
+      .profile-summary__image {
+        border-radius: 50%;
+        border: 3px solid #6F4ACF;
+        margin-right: 7px;
+      }
+
+      .profile-summary__name {
+        font-size: 14px;
+        color: #333333;
+        padding-top: 4px;
+        display: block;
+      }
+
+      br {
+        display: none;
+      }
+
+      .profile-summary__email {
+        font-size: 12px;
+        color: #737373;
+      }
+    }
+
+    .logged-in-menu__links {
+      li {
+        position: relative;
+
+        a {
+          color: #187BD6;
+          font-size: 12px;
+          font-weight: 700;
+
+          &:hover {
+            text-decoration: none;
+            color: #6F4ACF;
+          }
+        }
+
+        &.logged-in-menu__signout-link {
+          border-top: 0;
+          margin-top: 13px;
+          padding-top: 13px;
+
+          &:before {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: -24px;
+            content: " ";
+
+            width: 258px;
+            height: 2px;
+            background: #E9E9E9;
+          }
+        }
+      }
+    }
+
+
+    
   }
   li {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -87,7 +174,7 @@
   .js-loaded & {
     @include respond-min( $main_menu-mobile_menu_cutoff ){
       //positioned alongside the button
-      top: 4.1em;
+      top: 93px;
     }
   }
 }
