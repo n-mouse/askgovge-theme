@@ -1,0 +1,130 @@
+#user_show {
+    #user_profile_header {
+        margin-bottom: 30px;
+        padding-bottom: 45px;
+        border-bottom: 1px solid #BEBEBE;
+
+        .send_message_a a {
+            display: block;
+            float: right;
+
+            width: 100%;
+            height: 58px;
+            line-height: 58px;
+
+            border: 1px solid #FF7A00;
+            border-radius: 30px;
+
+            color: #FF7A00;;
+            text-align: center;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+
+            &:hover {
+                background-color: #FF7A00;
+                color: #fff;
+            }
+
+            
+        }
+
+
+        #user_photo_on_profile {
+            a {
+                display: block;
+
+                img {
+                    width: 107px;
+                    height: 107px;
+                    border-radius: 50%;
+                    border: 3px solid #6F4ACF;
+                    margin-right: 25px;
+
+                    margin-bottom: 150px; //?
+                }
+            }
+        }
+
+        h1 {
+            padding-top: 10px;
+            margin-bottom: 10px;
+            font-size: 30px;
+            color: #333333;
+        }
+
+        p.subtitle {
+            font-size: 14px;
+            color: #333333;
+        }
+
+        .user_about_me {
+            padding-left: 0;
+            //margin-left: 135px;
+            margin-left: 0;
+            margin-bottom: 20px;
+
+            font-size: 14px;
+            font-weight: 700;
+            color: #333333;
+
+            .comment_quote {
+                display: none;
+            }
+        }
+
+        .user_change_password_email {
+            color: #f2f2f2;
+            font-size: 0px;
+            line-height: 0px;
+
+            a {
+                display: block;
+                color: #187BD6;
+                font-size: 14px;
+                line-height: 30px;
+                text-decoration: none;
+            }
+        }
+    }
+
+
+    .track_things {
+
+        padding-left: 135px;
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+
+
+            li {
+                border-top: 1px solid #BEBEBE;
+                padding-top: 10px;
+            }
+    
+    
+        }
+    
+        .feed_form {
+            
+            line-height: 44px;
+            margin-bottom: 10px;
+
+            h3 {
+                font-size: 20px;
+                line-height: 44px;
+                margin-bottom: 0;
+            }
+    
+            input[type=submit] {
+                float: right;
+                padding-right: 50px;
+                padding-left: 50px;
+            }
+        }
+    }
+
+
+
+}
