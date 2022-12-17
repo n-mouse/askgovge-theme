@@ -43,3 +43,6 @@ msgstr "გაუგზავნე შეტყობინება"
 
 msgid "Send message to {{user_name}}"
 msgstr "გაუგზავნე შეტყობინება"
+
+msgid "Make a request &raquo;"
+msgstr "გამოითხოვე ინფორმაცია"
