@@ -7,7 +7,7 @@
 
 
 
-
+  // simple dropdown. used as sorter.
   $(document).on('click','.sorter *',function(){
       if ( $(this).closest('.sorter').hasClass('open') ) {
         $('.sorter').removeClass('open');
@@ -17,6 +17,12 @@
       }
         
   });
+
+  // help-about dd accordeon.
+  $(document).on('click','.controller_help .left_column_flip dt', function(){
+      $(this).next('dd').slideToggle('fast');
+  });
+
 
 
 </script>

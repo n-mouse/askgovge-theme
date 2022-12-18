@@ -1,0 +1,75 @@
+.controller_help {
+    .right_column_flip {
+        h2 {
+            margin-top: 40px;
+            font-size: 30px;
+            line-height: 40px;
+            color: #333333;
+        }
+
+        ul {
+            color: #552EBA;
+            padding-left: 20px;
+            font-size: 15px;
+
+            a {
+                text-decoration: none;
+                color: inherit;
+            }
+        }
+    }
+
+    .left_column_flip {
+        h1 {
+            margin-top: 40px;
+            font-size: 18px;
+            line-height: 40px;
+            color: #552EBA;
+            position: relative;
+            text-indent: 2px;
+            margin-bottom: 15px;
+
+            &:before {
+                display: inline-block;
+                content: " ";
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background: #552EBA;
+                position: absolute;
+                left: -10px;
+                top: 18px;
+            }
+        }
+
+        dl {
+            color: #333333;
+            
+            a {
+                color: #187BD6;
+                text-decoration: none;
+            }
+
+            dt {
+                line-height: 30px;
+                margin-top: 25px;
+                cursor: pointer;
+                font-size: 14px;
+
+                &:hover {
+                    color: #552EBA;
+                }
+            }
+
+            dd {
+                display: none;
+                font-size: 14px;
+                margin-bottom: 5px;
+
+                &:first-of-type {
+                    display: block;
+                }
+            }
+        }
+    }
+}
