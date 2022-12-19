@@ -2,6 +2,8 @@
     .new_info_request {
         max-width: none;
 
+        
+
         #request_header {
             border-bottom: 50px;
 
@@ -126,7 +128,8 @@
         }
 
 
-        #request_advice {
+        #request_advice,
+        .preview-advice {
             &>p,
             .advice-panel ul li {
                 position: relative;
@@ -158,6 +161,86 @@
                 }
                 
                 
+            }
+        }
+
+
+        &#preview_form > h1 {
+            margin-bottom: 18px;
+        }
+        .preview-pane {
+            .correspondence.box {
+                padding: 14px 22px;
+
+                background: #FFFFFF;
+                border: 1px solid #9C9C9C;
+                border-radius: 22px;
+                box-shadow: none;
+
+                .correspondence_text {
+                    color: #000;
+                }
+
+                &+p {
+                    color: #000;
+                    padding: 15px 23px 25px;
+                }
+            }
+
+            
+
+            &>p {
+                .form_label {
+                    color: #737373;
+                    font-size: 14px;
+                }
+            }
+
+            .padlabel {
+                color: #737373;
+                margin-bottom: 10px;
+            }
+
+            #signature-pad {
+                overflow: hidden;
+                border-radius: 22px;
+                margin-bottom: 14px;
+
+                #JohnHancock-canvas {
+                    width: 100%;
+                    float: left;
+                }
+            }
+
+            button.button.clear {
+                height: 44px;
+                line-height: 44px;
+                font-size: 14px;
+                font-weight: 700;
+                padding: 0 27px;
+
+
+                background: #BEBEBE;
+                border-radius: 25px;
+            }
+
+            input#send_copy {
+                margin-left: 22px;
+            }
+
+            #submit_button {
+                height: 60px;
+                line-height: 60px;
+                width: 100%;
+                text-align: center;
+                border-radius: 30px;
+            }
+
+            #reedit_button {
+                display: block;
+                color: #737373;
+                text-decoration: none;
+                margin: 10px auto;
             }
         }
 

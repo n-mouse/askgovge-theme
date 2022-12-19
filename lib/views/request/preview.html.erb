@@ -62,17 +62,17 @@
           </p>
           <p>
             <%= o.label :phone, _('Phone number:'), class: "form_label" %> 
-            <%= o.telephone_field :phone, style:"width:400px;max-width:100%" %>
+            <%= o.telephone_field :phone %>
           </p>
           <p>
             <%= o.label :idnumber, _('ID number:'), class: "form_label" %> 
-            <%= o.text_field :idnumber, style:"width:400px;max-width:100%" %>
+            <%= o.text_field :idnumber %>
           </p>
-          <p><%= _('Sign here:') %></p>
-          <div class="signature-pad" id="signature-pad">
+          <p class="padlabel"><%= _('Sign here:') %></p>
+          <div class="signature-pad clearfix" id="signature-pad">
             <%= o.signature_field :signature %>
           </div>
-          <button type="button" style="padding: 8px 20px; border-radius:3px" class="button clear" data-action="clear"><%=_('Clear')%></button>
+          <button type="button" class="button clear" data-action="clear"><%=_('Clear')%></button>
       <% end %>
 
       <% if @render_recaptcha %>
@@ -80,6 +80,14 @@
         <%= recaptcha_tags %>
       </p>
       <% end %>
+
+      <p class="form_checkbox">
+        <input type="checkbox" name="send_copy" id="send_copy">
+
+        <label for="send_copy">
+          <%=_("A copy of the request will be emailed to you")%>
+        </label>
+    </p>
 
       <p>
         <%= f.hidden_field(:title) %>
@@ -94,11 +102,12 @@
         <%= f.hidden_field(:tag_string) %>
         <%= hidden_field_tag(:submitted_new_request, 1) %>
         <%= hidden_field_tag(:preview, 0 ) %>
-        <%= submit_tag _("Edit your request"), :name => 'reedit', :id => 'reedit_button' %>
         <%= submit_tag _("Send and publish request"), :data => { :disable_with => _("Sending...") },
                                           :name => 'submit', :id => 'submit_button' %>
+        <%= submit_tag _("Edit your request"), :name => 'reedit', :id => 'reedit_button' %>
+
       </p>
-      <p style="padding-left:20px"><strong><%=_("A copy of the request will be emailed to you")%></strong></p>
+
 
       <% if !@info_request.tag_string.empty? %>
         <p><strong><%= _('Tags:') %></strong> <%=h @info_request.tag_string %></p>
