@@ -204,8 +204,24 @@
 
 /* General styles */
 body{
-  background-color: $body-bg;
+  background-color: #f0f0f0;
   color: $body-font-color;
+
+  #wrapper #content {
+    font-size: 14px;
+    color: #333;
+  }
+  
+}
+
+textarea {
+  box-shadow: none;
+  border-radius: 25px;
+  border-color: #9C9C9C;
+
+  &:focus {
+    background-color: #fff;
+  }
 }
 
 .entirebody {
@@ -222,6 +238,19 @@ a {
   &:focus {
     color: darken($link-color, 10%);
   }
+}
+
+
+h1 {
+  font-size: 30px;
+  line-height: 40px;
+  color: #333;
+  margin-top: 40px;
+}
+
+h2 {
+  font-size: 20px;
+  line-height: 30px;
 }
 
 /* Let h1s be a little smaller on small screens */
@@ -1300,3 +1329,4 @@ select:focus {
 @import "responsive/_custom_sorter";
 @import "responsive/_custom_profile";
 @import "responsive/_custom_help";
+@import "responsive/_custom_newrequest";

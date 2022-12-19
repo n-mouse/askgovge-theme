@@ -46,3 +46,6 @@ msgstr "გაუგზავნე შეტყობინება"
 
 msgid "Make a request &raquo;"
 msgstr "გამოითხოვე ინფორმაცია"
+
+msgid "To"
+msgstr "საჯარო დაწესებულებისგან :"

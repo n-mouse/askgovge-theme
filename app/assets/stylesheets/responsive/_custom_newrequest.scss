@@ -1,0 +1,166 @@
+#request_new {
+    .new_info_request {
+        max-width: none;
+
+        #request_header {
+            border-bottom: 50px;
+
+            #to_public_body {
+                padding: 0;
+                margin-top: 25px !important;
+                margin-bottom: 0 !important;
+
+                background-color: transparent;
+                font-size: 14px;
+                color: #000;
+                font-weight: 700;
+    
+                span {
+                    display: block;
+                    font-weight: normal;
+                }
+            }
+        }
+
+        .request_form {
+            label {
+                color: #737373;
+                padding-left: 20px;
+                font-size: 14px;
+            }
+    
+            .form_item_note {
+                display: none;
+            }
+
+            #typeahead_search {
+                margin-bottom: 0;
+            }
+
+            #request_subject > p {
+                margin-bottom: 0;
+            }
+
+            &>p:first-of-type {
+                margin-top: 30px;
+                margin-bottom: 21px;
+
+                .form_label {
+                    color: #333;
+                }
+            }
+
+            textarea#outgoing_message_body {
+                padding: 17px 22px;
+                color: #000;
+                font-size: 14px;
+                line-height: 24px;
+            }
+
+            .form_button input[type=submit] {
+                height: 60px;
+                line-height: 60px;
+                width: 100%;
+                text-align: center;
+                border-radius: 30px;
+            }
+        }
+
+
+        
+
+        .typeahead_response {
+            background: #fdfdfd;
+            border-radius: 20px;
+
+            @media( min-width: $main_menu-mobile_menu_cutoff ) {
+                //margin-top: -65px;
+                position: relative;
+                z-index: 10;
+            }
+
+
+            .request_search_ahead_results {
+                background-color: transparent;
+                padding: 7px 0;
+
+                h2 {
+                    color: #737373;
+                    font-size: 14px;
+                    border-bottom: 1px solid #BEBEBE;
+                    padding: 0 30px 13px;
+                }
+
+                .close-button {
+                    font-size: 18px;
+                    padding: 14px 30px 0 0;
+                    cursor: pointer;
+                }
+
+                .request_short_listing {
+                    border-bottom: 1px solid #BEBEBE;
+
+                    &:nth-last-child(2) {
+                        border-bottom: 0;
+                    }
+
+                    h3 {
+                        margin: 18px 0;
+                        padding: 0 30px;
+                        a {
+                            font-weight: normal;
+                            font-size: 14px;
+                            line-height: 24px;
+                            color: #187BD6;
+                        }
+                    } 
+                    p {
+                        display: none;
+                    }
+                }
+
+                .body-site-search-link {
+                    display: none;
+                }
+            }
+        }
+
+
+        #request_advice {
+            &>p,
+            .advice-panel ul li {
+                position: relative;
+                margin: 0 0 35px;
+                padding: 17px 20px;
+
+                background: #FFFFFF;
+                box-shadow: 10px 10px 13px rgba(0, 0, 0, 0.05);
+                border-radius: 22px;
+
+                font-size: 13px;
+                line-height: 17px;
+
+                &:before {
+                    content: " ";
+                    position: absolute;
+                    width: 18px;
+                    height: 18px;
+                    left: -9px;
+                    top: 25px;
+                    
+                    background: #FFFFFF;
+                    transform: scale(1, 0.8) rotate(-45deg);
+                }
+
+                a {
+                    color: #187BD6;
+                    text-decoration: none;
+                }
+                
+                
+            }
+        }
+
+
+    }
+}
