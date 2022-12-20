@@ -16,6 +16,7 @@
 
     .filter_container {
         margin-top: 16px;
+        margin-bottom: 22px;
         float: none;
         width: auto;
     }
@@ -51,9 +52,13 @@
             border-radius: 30px;
             font-size: 18px;
             padding: 0 35px;
+
+            max-width: 380px;
+            overflow: hidden;
         }
 
-        a.track__action {
+        a.track__action,
+        a.unsubscribe__action {
             border: 1px solid #60914C;
             color: #60914C;
             border-radius: 25px;
@@ -63,12 +68,10 @@
 
             height: 42px;
             line-height: 42px;
+        }
 
-            // &:hover {
-            //     background-color: #60914C;
-            //     color: #fff;
-            // }
-
+        a.unsubscribe__action {
+            padding: 0 15px;
         }
 
         .action-bar__follower-count {
@@ -76,6 +79,7 @@
             color: #737373;
             left: 0;
             padding-left: 11px;
+            padding-right: 0;
         }
         
         @include grid-column(12);
@@ -114,6 +118,25 @@
         }
     }
 
+    .authority__body {
+        padding: 0 19px;
+        margin-bottom: 120px;
+    }
+
+    .authority__header__stats {
+        font-size: 16px;
+        color: #737373;
+
+        padding-bottom: 10px;
+
+        border-bottom: 1px solid #BEBEBE;
+
+        strong {
+            color: #333333;
+        }
+
+        
+    }
 
     .authority__body__foi-results {
         width: 100%;
