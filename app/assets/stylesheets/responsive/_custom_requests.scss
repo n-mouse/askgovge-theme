@@ -279,7 +279,8 @@ div.pagination {
     }
 }
 
-#request_select_authority {
+#request_select_authority,
+#public_body_show {
 
     &>.typeahead_response>p:first-child {
         display: none;

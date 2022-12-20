@@ -49,3 +49,9 @@ msgstr "გამოითხოვე ინფორმაცია"
 
 msgid "To"
 msgstr "საჯარო დაწესებულებისგან :"
+
+msgid "Make an {{legislation}} request to this authority"
+msgstr "გამოითხოვე ინფორმაცია"
+
+msgid "Make a {{legislation}} request to this authority"
+msgstr "გამოითხოვე ინფორმაცია"

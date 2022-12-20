@@ -1,0 +1,122 @@
+#public_body_show {
+    margin: 0;
+
+    .back-to-results {
+        float: none;
+
+        .message{
+            background-color: transparent;
+    
+            a {
+                color: #187BD6;
+            }
+        }
+    } 
+
+
+    .filter_container {
+        margin-top: 16px;
+        float: none;
+        width: auto;
+    }
+
+    .leftside {
+
+        .authority__header__action-bar {
+            border-top: 0;
+            margin-bottom: 20px;
+            margin-top: 0;
+            padding-top: 12px;
+        }
+
+        .authority__header__subtitle {
+            font-size: 16px;
+            color: #9C9C9C;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 20px;
+            line-height: 30px;
+            color: #333333;
+        }
+
+        .action-bar__make-request {
+            margin-right: 20px;
+        }
+
+        a.make-request__action {
+            height: 60px;
+            line-height: 60px;
+            border-radius: 30px;
+            font-size: 18px;
+            padding: 0 35px;
+        }
+
+        a.track__action {
+            border: 1px solid #60914C;
+            color: #60914C;
+            border-radius: 25px;
+            padding: 0 25px;
+            font-size: 14px;
+            background: transparent;
+
+            height: 42px;
+            line-height: 42px;
+
+            // &:hover {
+            //     background-color: #60914C;
+            //     color: #fff;
+            // }
+
+        }
+
+        .action-bar__follower-count {
+            border: 0;
+            color: #737373;
+            left: 0;
+            padding-left: 11px;
+        }
+        
+        @include grid-column(12);
+
+        @include respond-min( $main_menu-mobile_menu_cutoff ){
+            float: left !important;
+            @include grid-column($columns:8,$float:right);
+
+        }
+    }
+
+    .rightside {
+        @include grid-column(12);
+
+        @include respond-min( $main_menu-mobile_menu_cutoff ){
+            float: right !important;
+            @include grid-column($columns:4,$float:right);
+
+
+            .authority__body__sidebar {
+                padding: 20px 0 35px 45px;
+                width: 100%;
+
+                h2 {
+                    font-size: 16px;
+                    color: #333333;
+                    margin-bottom: 10px;
+                }
+
+                a {
+                    color: #187BD6;
+                    text-decoration: none;
+                }
+            }
+
+        }
+    }
+
+
+    .authority__body__foi-results {
+        width: 100%;
+        padding: 0;
+    }
+}
