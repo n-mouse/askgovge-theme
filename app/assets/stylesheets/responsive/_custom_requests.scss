@@ -174,6 +174,58 @@
                     line-height: 19px;
                     color: #737373;
                     padding: 0;
+                    margin-bottom: 12px;
+                }
+
+                .attachments {
+                    float: left;
+                    border: 0;
+
+                    .list-of-attachments {
+                        padding: 0;
+                        margin-top: 0;
+
+                        .attachment {
+                            float: left;
+                            height: 34px;
+                            border: 1px solid #DEDEDE;
+                            border-radius: 25px;
+                            margin-right: 4px;
+                            margin-bottom: 5px;
+                            padding: 0 12px;
+                            overflow: hidden;
+
+                            &:hover {
+                                border-color: #9E9E9E;
+                            }
+
+                            .attachment__image {
+                                height: 21px;
+                                margin-top: 5px;
+                            }
+
+                            .attachment__name {
+                                display: block;
+                                float: left;
+                                white-space: nowrap;
+                                max-width: 100px;
+                                overflow: hidden;
+                                color: #9C9C9C;
+                                font-size: 14px;
+                                margin-top: 3px;
+
+                                &:hover {
+                                    text-decoration: none;
+                                }
+                            }
+
+
+
+                            .attachment__meta {
+                                display: none;
+                            }
+                        }
+                    }
                 }
             }
 
