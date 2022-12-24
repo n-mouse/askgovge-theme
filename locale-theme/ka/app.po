@@ -29,3 +29,12 @@ msgstr "გასუფთავება"
 
 msgid "A copy of the request will be emailed to you"
 msgstr "განცხადების ასლს პირად ელ-ფოსტაზე მიიღებ"
+
+msgid "ID number can't be blank"
+msgstr "პირადი ნომრის მითითების გარეშე, განცხადება ვერ დარეგისტრირდება"
+
+msgid "Phone number can't be blank"
+msgstr "საკონტაქტო ნომრის მითითების გარეშე, განცხადება ვერ დარეგისტრირდება"
+
+msgid "Address can't be blank"
+msgstr "მისამართის მითითების გარეშე, განცხადება ვერ დარეგისტრირდება"

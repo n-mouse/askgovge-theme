@@ -9,6 +9,11 @@ Rails.configuration.to_prepare do
 
   RequestController.class_eval do
     include Signature
+    
+    def outgoing_message_params
+      params.require(:outgoing_message).permit(:body, :what_doing, :idnumber, :phone, :address, :signature)
+    end
+    
   def new
     # All new requests are of normal_sort
     if !params[:outgoing_message].nil?

@@ -1,0 +1,86 @@
+<div id="request_subject" class="request_subject">
+  <p>
+    <label class="form_label" for="typeahead_search"><%= _('Summary') %></label>
+    <%= f.text_field :title, :size => 50, :id =>"typeahead_search" %>
+  </p>
+
+  <div class="form_item_note">
+    <%= _("A one line summary of the information you are requesting, e.g.") %>
+    <%= render :partial => "summary_suggestion" %>
+  </div>
+</div>
+
+<div id="typeahead_response" class="typeahead_response">
+</div>
+
+<%= fields_for :outgoing_message do |o| %>
+  <p>
+    <label class="form_label" for="outgoing_message_body">
+      <%= _('Your request') %></label>
+    <%= o.text_area :body, :rows => 20, :cols => 60 %>
+  </p>
+
+  <p>
+  <%= _('Public bodies require a signature and additional information to be provided with the information request. Please, add the information and your signature here.') %>
+  <br>
+  <%= _('We do not keep your private information and your signature after the request is sent.') %>
+  </p>
+    <p>
+      <%= o.label :address, _('Address:'), class: "form_label" %>  
+      <%= o.text_field :address %>
+    </p>
+    <p>
+      <%= o.label :phone, _('Phone number:'), class: "form_label" %> 
+      <%= o.telephone_field :phone, style:"width:400px;max-width:100%" %>
+    </p>
+    <p>
+      <%= o.label :idnumber, _('ID number:'), class: "form_label" %> 
+      <%= o.text_field :idnumber, style:"width:400px;max-width:100%" %>
+    </p>
+    <p><%= _('Sign here:') %></p>
+    <div class="signature-pad" id="signature-pad">
+      <%= o.signature_field :signature %>
+    </div>
+    <button type="button" style="padding: 8px 20px; border-radius:3px" class="button clear" data-action="clear"><%=_('Clear')%></button>
+
+<% end %>
+
+<%= render partial: 'new_message_text_length' %>
+
+<div class="form_button">
+  <% if @batch %>
+    <% params[:public_body_ids].each do |public_body_id| %>
+      <%= hidden_field_tag("public_body_ids[]", public_body_id)%>
+    <% end %>
+  <% else %>
+    <%= f.hidden_field(:public_body_id, { :value => @info_request.public_body_id } ) %>
+  <% end %>
+  <%= hidden_field_tag(:submitted_new_request, 1 ) %>
+  <%= hidden_field_tag(:preview, 1 ) %>
+  <%= submit_tag _('Next Step: Preview your public request') %>
+</div>
+
+<% if !@info_request.tag_string.empty? %>
+  <p class="form_note">
+    <!-- <label class="form_label" for="info_request_tag_string"><%= _("Tags (separated by a space):") %></label>
+      <%= f.text_field :tag_string, :size => 50 %> -->
+
+      <%= f.hidden_field(:tag_string) %>
+      <strong>Tags:</strong> <%=h @info_request.tag_string %>
+  </p>
+<% end %>
+
+
+<style>
+.signature-pad canvas {
+  background-color: white;
+}
+</style>
+<script>
+var clearButton = document.querySelector("[data-action=clear]");
+clearButton.addEventListener("click", function (event) {
+  var canvas = document.getElementById("JohnHancock-canvas");
+  var context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
+});
+</script>
