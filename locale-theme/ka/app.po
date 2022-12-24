@@ -3,8 +3,8 @@
 # "translations" of the core English words (e.g. you might want to
 # call FOI "RTI" throughougout, like this:
 #
-msgid "Most public bodies require a signature and additional information to be provided with the information request. If you want, you can add the information and your signature here."
-msgstr "იმისათვის, რომ საჯარო დაწესებულებებმა განაცხადი წარმოებაში მიიღონ, ქვემოთ მოცემული ინფორმაციის მიწოდებასაც ითხოვენ. მითითებული მონაცემები მხოლოდ საჯარო დაწესებულებას გაეგზავნება და პორტალზე საჯაროდ არ გამოქვეყნდება. ხელმოწერა და პირადი მონაცემები არც askgov.ge-ის სერვერზე შეინახება."
+msgid "Public bodies require a signature and additional information to be provided with the information request. Please, add the information and your signature here."
+msgstr "იმისათვის, რომ საჯარო დაწესებულებებმა განაცხადი წარმოებაში მიიღონ, ქვემოთ მოცემული ინფორმაციის მიწოდებასაც ითხოვენ. მითითებული მონაცემები მხოლოდ საჯარო დაწესებულებას გაეგზავნება დაპორტალზე საჯაროდ არ გამოქვეყნდება. ხელმოწერა და პირადი მონაცემები არც askgov.ge-ის სერვერზე შეინახება."
       
 msgid "We do not keep your private information and your signature after the request is sent."
 msgstr "ჩვენ არ ვინახავთ თქვენს პირად ინფორმაციას და ხელმოწერას მოთხოვნის გაგზავნის შემდეგ."
