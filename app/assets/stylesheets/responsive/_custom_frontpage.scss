@@ -2,7 +2,11 @@
     background-color: #552EBA;
     color: #fff;
 
-    padding: 38px 0 60px;
+    padding: 38px 0.9375rem 60px;
+
+    @media( min-width: $main_menu-mobile_menu_cutoff ) {
+        padding: 38px 0 60px;
+    }
 
     .firstline {
         padding-bottom: 60px;
@@ -148,6 +152,45 @@
             }
         }
     }
+
+    @media( max-width: $main_menu-mobile_menu_cutoff ) {
+        .firstline .stats__intro {
+            width: 100%;
+        }
+
+        .firstline .stats__browse {
+            width: 100%;
+
+            a {
+                .count {
+                    font-size: 29px;
+                }
+                .title {
+                    font-size: 14px;
+                }
+            }
+
+            a.building {
+                margin-left: 0;
+                float: left;
+                width: calc(50% - 5px);
+                background-position: top 18px right 8px;
+            }
+
+            a.envelope {
+                background-position: top 18px right 8px;
+                float: right;
+                width: calc(50% - 5px);
+            }
+        }
+
+        .tops .list {
+            width: 100%;
+            padding-right: 0;
+            margin-bottom: 25px;
+
+        }
+    }
 }
 
 .homepage-how-it-works {
@@ -155,11 +198,14 @@
 }
 
 .homepage-how-it-works__hiw-content {
-    @media( min-width: $main_menu-mobile_menu_cutoff ) {
 
         padding: 0;
         width: 100%;
-        margin: 0 0 170px !important;
+        margin: 0 0 60px;
+        @media( min-width: $main_menu-mobile_menu_cutoff ) {
+            margin: 0 0 170px !important;
+        }
+        
 
         .hiw-content__headings {
             text-align: left;
@@ -185,6 +231,13 @@
             li {
                 padding: 0 35px 0 0;
                 position: relative;
+
+                @media( max-width: $main_menu-mobile_menu_cutoff ) {
+                    width: 100%;
+                    margin-bottom: 40px;
+                    padding-right: 0;
+                    margin-left: 0 !important;
+                }
 
                 &:last-child {
                     padding-right: 0;
@@ -223,7 +276,10 @@
 
         .learn-more-foi {
             margin-top: 22;
-            text-align: right;
+            
+            @media( min-width: $main_menu-mobile_menu_cutoff ) {
+                text-align: right;
+            }
 
             a {
                 height: 60px;
@@ -239,5 +295,4 @@
                 border-radius: 30px;
             }
         }
-    }
 }
