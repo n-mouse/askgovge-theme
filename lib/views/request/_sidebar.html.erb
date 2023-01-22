@@ -1,19 +1,19 @@
 <div id="right_column" class="sidebar right_column" role="complementary">
 
-<%# static for demo view %>
   <div class="sidebar__section clearfix requester">
     <div class="fromto">
-        <span>from:</span> <a href="#">საქართველოს იუსტიციის სამინისტრო</a>
+        <span>from:</span> <%= request_user_link(info_request, _('An anonymous user'))%> 
     </div>
     <div class="fromto">
-        <span>to:</span> <a href="#">Viktor Datashvili</a>
+        <span>to:</span> <%= public_body_link(info_request.public_body) %>
     </div>
 
     <div class="request-status">
-            <i class="icon-standalone icon_waiting_response"></i>
-            <div class="statustitle">
-                პასუხის მოლოდინში
-            </div>
+            
+      <i class="icon-standalone icon_<%= info_request.calculate_status %>"></i>
+      <div class="statustitle">
+        <strong><%= info_request.display_status(cached_value_ok=true) %></strong>
+      </div>
     </div>
 
   </div>
@@ -61,7 +61,7 @@
     <p class="copyright-notice">
         შენიშვნა:<br/>
         თუ აღნიშნული მოთხოვნა სტატიაში ან აკადემიურ ნაშრომშია დამოწმებული,
-        <a href="#">გვაცნობე</a>
+        <%= link_to "გვაცნობე", help_contact_path %>
     </p>
   </div>
 
@@ -72,13 +72,8 @@
     <p class="copyright-notice">
 
         ამ გვერდზე არსებული კომერციული მასალის საავტორო უფლებას ფლობ? 
-        <a href="#">შეგვატყობინე.</a>
+        <%= link_to "შეგვატყობინე", help_contact_path %>
 
-       <!--  <small>
-          <%= link_to _('Are you the owner of any commercial copyright on this ' \
-                        'page?'),
-                      help_officers_path(anchor: 'copyright') %>
-        </small> -->
     </p>
   </div>
 </div>

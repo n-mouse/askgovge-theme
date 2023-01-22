@@ -15,7 +15,7 @@
   <div class="row firstline clearfix">
 
         <div class="stats__intro">
-          <h2>გაეცანი გამოთხოვილ ინფორმაციას</h2>
+          <h2><%= _("Browse requests") %> </h2>
           <div class="description">
             ყველა მოქალაქეს აქვს უფლება გამოითხოვოს ინფორმაცია, რომელსაც საჯარო დაწესებულებები ფლობენ. კანონი მათ ავალდებულებთ, რომ საჯარო ინფორმაცია გასცენ დაუყონებლივ ან არა უგვიანეს 10 დღისა.
           </div>
@@ -23,15 +23,15 @@
 
         <div class="stats__browse">
 
-            <a href="#" class="building">
-              <span class="count">323</span>
-              <span class="title">საჯარო დაწესებულება</span>
-            </a>
+            <%= link_to list_public_bodies_default_path, class: "building" do %>
+              <span class="count"><%= number_with_delimiter(@number_of_authorities) %></span>
+              <span class="title"><%= _("public bodies") %></span>
+            <% end %>
 
-            <a href="#" class="envelope">
-              <span class="count">504</span>
-              <span class="title">გამოთხოვილი ინფორმაცია</span>
-            </a>
+            <%= link_to request_list_all_path, class: "envelope" do %>
+              <span class="count"><%= number_with_delimiter(@number_of_requests) %></span>
+              <span class="title"><%= _("info requests") %></span>
+              <% end %>
             
         </div>
 
@@ -39,95 +39,54 @@
 
   <div class="row tops clearfix">
 
+    <% if @top_bodies %>
       <div class="list">
-        <h3>Top ორგანიზაციები</h3>
+        <h3><%= _("Top authorities") %></h3>
 
-          <a href="#" class="clearfix">
+        <% @top_bodies.each do |body| %>
+          <%= link_to public_body_path(body) do %>
               <div class="circle">
-                <span class="numb">223</span>
-                <span class="subtit">მოთხოვნა</span>
+                <span class="numb"><%= body.info_requests_count %></span>
+                <span class="subtit"><%= _("requests") %></span>
               </div>
-              <div class="title">სტატისტიკის ეროვნული სამსახური</div>
-          </a>
+              <div class="title"><%= body.name %></div>
+          <% end %>         
+        <% end %>
 
-          <a href="#" class="clearfix">
-              <div class="circle">
-                <span class="numb">1</span>
-                <span class="subtit">მოთხოვნა</span>
-              </div>
-              <div class="title">ბუღალტრული აღრიცხვის, ანგარიშგებისა და აუდიტის სამინისტრო</div>
-          </a>
-
-          <a href="#" class="clearfix">
-              <div class="circle">
-                <span class="numb">44</span>
-                <span class="subtit">მოთხოვნა</span>
-              </div>
-              <div class="title">საქართველოს განათლებისა და მეცნიერების სამინისტრო</div>
-          </a>
-
-        </ul>
       </div>
-
+    <% end %>
+      
+    <% if @top_users %>
       <div class="list">
-        <h3>Top ორგანიზაციები</h3>
+        <h3><%= _("Top users") %></h3>
 
-          <a href="#">
-              <div class="circle">
-                <span class="numb">17</span>
-                <span class="subtit">მოთხოვნა</span>
-              </div>
-              <div class="title">საცხობი</div>
-          </a>
-
-          <a href="#">
-              <div class="circle">
-                <span class="numb">1564</span>
-                <span class="subtit">მოთხოვნა</span>
-              </div>
-              <div class="title">ბუღალტრული აღრიცხვის, ანგარიშგებისა და აუდიტის სამინისტრო</div>
-          </a>
-
-          <a href="#">
-              <div class="circle">
-                <span class="numb">44</span>
-                <span class="subtit">მოთხოვნა</span>
-              </div>
-              <div class="title">საქართველოს განათლებისა და მეცნიერების სამინისტრო</div>
-          </a>
-
-        </ul>
+        <% @top_users.each do |user| %>
+          <%= link_to user_path(user) do %>
+            <div class="circle">
+              <span class="numb"><%= user.info_requests_count %></span>
+              <span class="subtit"><%= _("users") %></span>
+            </div>
+            <div class="title"><%= user.name %></div>
+          <% end %>         
+        <% end %>
       </div>
+    <% end %>
 
+    <% if @top_requests %>
       <div class="list">
-        <h3>Top ორგანიზაციები</h3>
+        <h3><%= _("Top requests") %></h3>
 
-          <a href="#" class="clearfix">
-              <div class="circle">
-                <span class="numb">223</span>
-                <span class="subtit">გამომწერი</span>
-              </div>
-              <div class="title">ბოძკინტების საამქრო</div>
-          </a>
-
-          <a href="#" class="clearfix">
-              <div class="circle">
-                <span class="numb">1</span>
-                <span class="subtit">გამომწერი</span>
-              </div>
-              <div class="title">პოლიციის ხარჯები 2012 და 2013 წლებში</div>
-          </a>
-
-          <a href="#" class="clearfix">
-              <div class="circle">
-                <span class="numb">44</span>
-                <span class="subtit">გამომწერი</span>
-              </div>
-              <div class="title">საქართველოს განათლებისა და მეცნიერების სამინისტრო</div>
-          </a>
-
-        </ul>
+        <% @top_requests.each do |request| %>
+          <%= link_to request_path(request) do %>
+            <div class="circle">
+              <span class="numb"><%= request.track_things.count %></span>
+              <span class="subtit"><%= _("followers") %></span>
+            </div>
+            <div class="title"><%= request.title %></div>
+          <% end %>         
+        <% end %>
       </div>
+    <% end %>
 
   </div>
 

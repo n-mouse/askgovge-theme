@@ -2,8 +2,10 @@
 # Here you can override or add to the pages in the core website
 
 Rails.application.routes.draw do
-  # brand new controller example
-  # get '/mycontroller' => 'general#mycontroller'
-  # Additional help page example
-  # get '/help/help_out' => 'help#help_out'
+  match '/about' => 'help#intro',
+        :as => :help_intro,
+        :via => :get
+  match '/help/publicinfo' => 'help#publicinfo',
+        :as => :help_publicinfo,
+        :via => :get
 end

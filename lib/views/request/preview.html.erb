@@ -48,31 +48,21 @@
             
           </div>
 
+          <p><strong><%= _('Address:') %> </strong><%= @outgoing_message.address %></p>
+          <p><strong><%= _('Phone number:') %> </strong><%= @outgoing_message.phone %></p>
+          <p><strong><%= _('ID number:') %> </strong><%= @outgoing_message.idnumber %></p>
+
+          <%= o.hidden_field(:address) %>
+          <%= o.hidden_field(:phone) %>
+          <%= o.hidden_field(:idnumber) %>
+          <%= o.hidden_field(:signature) %>
+
+          <img src="<%= @outgoing_message.signature %>"/>
+
           <p class="event_actions"></p>
           
         </div>
-        <p>
-        <%= _('Most public bodies require a signature and additional information to be provided with the information request. If you want, you can add the information and your signature here.') %>
-        <br>
-        <%= _('We do not keep your private information and your signature after the request is sent.') %>
-        </p>
-          <p>
-            <%= o.label :address, _('Address:'), class: "form_label" %>  
-            <%= o.text_field :address %>
-          </p>
-          <p>
-            <%= o.label :phone, _('Phone number:'), class: "form_label" %> 
-            <%= o.telephone_field :phone %>
-          </p>
-          <p>
-            <%= o.label :idnumber, _('ID number:'), class: "form_label" %> 
-            <%= o.text_field :idnumber %>
-          </p>
-          <p class="padlabel"><%= _('Sign here:') %></p>
-          <div class="signature-pad clearfix" id="signature-pad">
-            <%= o.signature_field :signature %>
-          </div>
-          <button type="button" class="button clear" data-action="clear"><%=_('Clear')%></button>
+
       <% end %>
 
       <% if @render_recaptcha %>
@@ -80,14 +70,6 @@
         <%= recaptcha_tags %>
       </p>
       <% end %>
-
-      <p class="form_checkbox">
-        <input type="checkbox" name="send_copy" id="send_copy">
-
-        <label for="send_copy">
-          <%=_("A copy of the request will be emailed to you")%>
-        </label>
-    </p>
 
       <p>
         <%= f.hidden_field(:title) %>
@@ -102,12 +84,11 @@
         <%= f.hidden_field(:tag_string) %>
         <%= hidden_field_tag(:submitted_new_request, 1) %>
         <%= hidden_field_tag(:preview, 0 ) %>
+        <%= submit_tag _("Edit your request"), :name => 'reedit', :id => 'reedit_button' %>
         <%= submit_tag _("Send and publish request"), :data => { :disable_with => _("Sending...") },
                                           :name => 'submit', :id => 'submit_button' %>
-        <%= submit_tag _("Edit your request"), :name => 'reedit', :id => 'reedit_button' %>
-
       </p>
-
+      <p style="padding-left:20px"><strong><%=_("A copy of the request will be emailed to you")%></strong></p>
 
       <% if !@info_request.tag_string.empty? %>
         <p><strong><%= _('Tags:') %></strong> <%=h @info_request.tag_string %></p>
@@ -116,16 +97,4 @@
   </div>
 <% end %>
 
-<style>
-.signature-pad canvas {
-  background-color: white;
-}
-</style>
-<script>
-var clearButton = document.querySelector("[data-action=clear]");
-clearButton.addEventListener("click", function (event) {
-  var canvas = document.getElementById("JohnHancock-canvas");
-  var context = canvas.getContext("2d");
-  context.clearRect(0, 0, canvas.width, canvas.height);
-});
-</script>
+

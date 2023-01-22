@@ -3,8 +3,6 @@
   <div class="correspondence__header">
 
     <div class="avatar">
-        <%# if there is no avatar, do not print img tag, just div.avatar is enough. %>
-        <img src="https://www.gravatar.com/avatar/3deefeb36df4bdb69d2901e47aac998d?s=256&d=identicon&r=PG">
     </div>
 
     <span class="correspondence__header__author js-collapsable-trigger">
@@ -17,8 +15,9 @@
     </span>
 
     <span class="short_desc">
-        <%# body preview text %>
-        ნაძალადევის მეტროსთან ია ვარდი და ბზა, ბლა ბლა ბლა ბლა ბლა ბლა, ბლაბლაბლაბლა ბლა ბლა.
+      <% if incoming_message.from_public_body? %>
+        <%= @info_request.public_body.notes %>
+      <% end %>
     </span> 
 
     <%= link_to incoming_message_path(incoming_message, anchor_only: true), :class => 'correspondence__header__date' do %>

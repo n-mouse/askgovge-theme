@@ -10,19 +10,14 @@
     <div class="correspondence__header <% if delivery_status %>correspondence__header--with-delivery-status<% end %>">
       
       <div class="avatar">
-            <%# if there is no avatar, do not print img tag, just div.avatar is enough. %>
-            <img src="https://www.gravatar.com/avatar/3deefeb36df4bdb69d2901e47aac998d?s=256&d=identicon&r=PG">
-       </div>
+        <% if show_profile_photo %>
+          <img src="<%= get_profile_photo_url(url_name: @info_request.user.url_name) %>" alt="">
+        <% end %>       
+      </div>
       
       <span class="correspondence__header__author js-collapsable-trigger">
         <%= @info_request.user_name %>
       </span>
-
-      <span class="short_desc">
-        <%# body preview text %>
-        ნაძალადევის მეტროსთან ია ვარდი და ბზა, ბლა ბლა ბლა ბლა ბლა ბლა, ბლაბლაბლაბლა ბლა ბლა.
-      </span> 
-
 
       <%= link_to outgoing_message_path(outgoing_message, anchor_only: true), :class => 'correspondence__header__date' do %>
           <%= simple_date(info_request_event.created_at) %>

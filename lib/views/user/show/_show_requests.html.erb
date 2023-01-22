@@ -1,6 +1,8 @@
 <div id="user_profile_search" class="user_profile_search">
 
-    <h1 id="your_requests_title">შენი გამოთხოვილი ინფორმაცია</h1>
+  <% if @is_you %>
+    <h1 id="your_requests_title"><%= _("Your requested information") %></h1>
+  <% end %>
 
   <%= form_tag(show_user_url, :method => "get", :id=>"search_form") do %>
     <div>

@@ -40,7 +40,8 @@
     <% if info_request_event.visible %>
       <%= render partial: 'request/correspondence',
                  locals: { info_request_event: info_request_event,
-                           show_correspondence_footer: !@info_request.embargo } %>
+                           show_correspondence_footer: !@info_request.embargo, 
+                           show_profile_photo: @show_profile_photo } %>
     <% end %>
   <% end %>
 

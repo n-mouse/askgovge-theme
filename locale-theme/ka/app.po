@@ -3,7 +3,7 @@
 # "translations" of the core English words (e.g. you might want to
 # call FOI "RTI" throughougout, like this:
 #
-msgid "Most public bodies require a signature and additional information to be provided with the information request. If you want, you can add the information and your signature here."
+msgid "Public bodies require a signature and additional information to be provided with the information request. Please, add the information and your signature here."
 msgstr "იმისათვის, რომ საჯარო დაწესებულებებმა განაცხადი წარმოებაში მიიღონ, ქვემოთ მოცემული ინფორმაციის მიწოდებასაც ითხოვენ. მითითებული მონაცემები მხოლოდ საჯარო დაწესებულებას გაეგზავნება და პორტალზე საჯაროდ არ გამოქვეყნდება. ხელმოწერა და პირადი მონაცემები არც askgov.ge-ის სერვერზე შეინახება."
       
 msgid "We do not keep your private information and your signature after the request is sent."
@@ -55,3 +55,39 @@ msgstr "გამოითხოვე ინფორმაცია"
 
 msgid "Make a {{legislation}} request to this authority"
 msgstr "გამოითხოვე ინფორმაცია"
+
+msgid "About"
+msgstr "დახმარება"
+
+msgid "News"
+msgstr "სიახლეები"
+
+msgid "public bodies"
+msgstr "საჯარო დაწესებულება"
+
+msgid "info requests"
+msgstr "გამოთხოვილი ინფორმაცია"
+
+msgid "Top authorities"
+msgstr "ყველაზე ხშირი ადრესატები"
+
+msgid "Top users"
+msgstr "ყველაზე აქტიური მომხმარებლები"
+
+msgid "Top requests"
+msgstr "ყველაზე ხშირად გამოთხოვილი"
+
+msgid "followers"
+msgstr "გამომწერები"
+
+msgid "Your requested information"
+msgstr "შენი გამოთხოვილი ინფორმაცია"
+
+msgid "ID number can't be blank"
+msgstr "პირადი ნომრის მითითების გარეშე, განცხადება ვერ დარეგისტრირდება"
+
+msgid "Phone number can't be blank"
+msgstr "საკონტაქტო ნომრის მითითების გარეშე, განცხადება ვერ დარეგისტრირდება"
+
+msgid "Address can't be blank"
+msgstr "მისამართის მითითების გარეშე, განცხადება ვერ დარეგისტრირდება"

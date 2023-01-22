@@ -7,24 +7,21 @@
       <%#= render :partial => 'general/nav_items' %>
     <%# end %>
 
-
-    <%# Sample html georgian menu links %>
-
     <li class="">
-        <a id="make-request-link" href="/ka/select_authority">გამოითხოვე ინფორმაცია</a>
+        <%= link_to _("Make a request"), select_authority_path, :id => 'make-request-link' %>
     </li>
     <li class="">
-        <a id="make-request-link" href="/ka/list/all">გაეცანი გამოთხოვილ ინფორმაციას</a>
+        <%= link_to _("Browse requests"), request_list_all_path %>
     </li>
 
     <li class="right">
-        <a id="make-request-link" href="/ka/about">შესახებ</a>
+      <%= link_to _("About"), help_intro_path %>
     </li>
     <li class="right">
-        <a id="make-request-link" href="/ka/help/about">დახმარება</a>
+      <%= link_to _("Help"), help_about_path %>
     </li>
     <li class="right">
-        <a id="make-request-link" href="#">სიახლეები</a>
+      <%= link_to _("News"), "#" %>
     </li>
   </ul>
 </div>
