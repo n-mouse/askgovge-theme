@@ -1,5 +1,4 @@
-<%# if this message has a attachment, use "withattachment" class here: %>
-<div class="incoming correspondence <%= incoming_message.prominence %> js-collapsable withattachment" id="incoming-<%= incoming_message.id %>">
+<div class="incoming correspondence <%= incoming_message.prominence %> js-collapsable <%= 'withattachment' if not incoming_message.get_attachments_for_display.nil? and incoming_message.get_attachments_for_display.size > 0 %>" id="incoming-<%= incoming_message.id %>">
   <div class="correspondence__header">
 
     <div class="avatar">
