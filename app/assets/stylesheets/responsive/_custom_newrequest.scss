@@ -126,6 +126,12 @@
                 }
             }
         }
+        
+        #request_advice {
+            @media( max-width: $main_menu-mobile_menu_cutoff ){
+                display:none;
+            }
+        }
 
 
         #request_advice,
