@@ -1,5 +1,7 @@
 #user_show {
     #user_profile_header {
+    
+        padding-top:20px;
         margin-bottom: 30px;
         padding-bottom: 45px;
         border-bottom: 1px solid #BEBEBE;
@@ -33,16 +35,15 @@
         #user_photo_on_profile {
             a {
                 display: block;
+            }
+            img {
+                width: 107px;
+                height: 107px;
+                border-radius: 50%;
+                border: 3px solid #6F4ACF;
+                margin-right: 25px;
 
-                img {
-                    width: 107px;
-                    height: 107px;
-                    border-radius: 50%;
-                    border: 3px solid #6F4ACF;
-                    margin-right: 25px;
-
-                    margin-bottom: 150px; //?
-                }
+                margin-bottom: 150px; //?
             }
         }
 
