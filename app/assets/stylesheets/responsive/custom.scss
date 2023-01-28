@@ -640,20 +640,7 @@ a.link_button_green_large {
   }
 }
 
-p.locale-list-trigger {
-  margin-bottom: 0;
-  color: #552EBA;
-  @include respond-min($main_menu-mobile_menu_cutoff) {
-    margin-top: 0;
-    width: 100%;
-    border: 1px solid desaturate(lighten($color_primary, 3%), 5%);
-    border-radius: 3px;
-    color: $link-color;
-    padding: 0;
-  }
-}
-
-.locale-list-trigger .current-locale {
+.locale-list-trigger .switch-locale {
   position: relative;
   z-index: 999;
   border-radius: 3px;
@@ -669,8 +656,7 @@ p.locale-list-trigger {
   }
 }
 
-.locale-list-trigger .current-locale,
-.locale-list .available-languages a {
+.locale-list-trigger .switch-locale {
   display: block;
   cursor: pointer;
   font-weight: normal;
@@ -682,64 +668,6 @@ p.locale-list-trigger {
   }
 }
 
-.locale-list .available-languages {
-  display: none;
-  @include respond-min($main_menu-mobile_menu_cutoff) {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    z-index: 1000;
-    border-radius: 3px;
-    font-size: 1em;
-    width: 100%;
-    //max-width: 10em;
-  }
-
-}
-
-.locale-list li {
-  list-style-type: none;
-  border-top: 1px solid rgba(255,255,255,0.2);
-  @include respond-min($main_menu-mobile_menu_cutoff) {
-    border-color: $color_dark_grey;
-    display: block;
-  }
-  &:last-child {
-    @include respond-min($main_menu-mobile_menu_cutoff) {
-      border-bottom: 0;
-      a {
-        border-bottom-right-radius: 3px;
-        border-bottom-left-radius: 3px;
-      }
-    }
-  }
-}
-
-.locale-list .available-languages a,
-.locale-list .available-languages a:link,
-.locale-list .available-languages a:visited {
-  text-decoration: none;
-  transition: background-color 0.5s ease-out;
-  color: #fff;
-  @include respond-min($main_menu-mobile_menu_cutoff) {
-    background-color: darken($color_dark_grey, 10%);
-    display: block;
-    padding: 0.5em 1em;
-    width: 100%;
-  }
-}
-
-.locale-list .available-languages a:hover,
-.locale-list .available-languages a:focus {
-  border-bottom: none;
-  background-color: rgba(0,0,0,0.1);
-  @include respond-min($main_menu-mobile_menu_cutoff) {
-    background-color: darken($color_mid_grey, 10%);
-  }
-  color: $color_white;
-
-}
-
 @media( max-width: $main_menu-mobile_menu_cutoff ) {
   #user_locale_switcher.locale-list {
     border-bottom: 0;
@@ -747,7 +675,7 @@ p.locale-list-trigger {
     .locale-list-trigger  {
       padding: 13px 16px;
 
-      .current-locale {
+      .switch-locale {
         font-size: 16px !important;
         color: #fff !important;
         font-weight: normal !important;
@@ -766,7 +694,7 @@ p.locale-list-trigger {
   display: block;
 }
 
-.locale-list.active .current-locale {
+.locale-list.active .switch-locale {
   color: $color_white;
   border-color: $color_primary;
   @include respond-min($main_menu-mobile_menu_cutoff) {
@@ -777,7 +705,7 @@ p.locale-list-trigger {
   }
 }
 
-.locale-list.active .current-locale:after {
+.locale-list.active .switch-locale:after {
   @include ie8 {
     border-top-color: $color_white;
   }
