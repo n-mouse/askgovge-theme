@@ -314,10 +314,10 @@
                 .action-menu__button {
                     height: 44px;
                     line-height: 44px;
-                    color: #737373;
                     text-decoration: none;
-                    font-size: 14px;
-
+                    font-weight: 600;
+                    color: #0f5e94;
+                    font-size: 18px;
                     &:after,
                     &:hover:after {
                         border-top-color: #737373;
