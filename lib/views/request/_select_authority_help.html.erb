@@ -3,7 +3,7 @@
   <%= raw _('<a href="{{browse_url}}">Browse all</a> or ' \
               '<a href="{{add_url}}">ask us to add one</a>.',
           :browse_url => list_public_bodies_default_path.html_safe,
-          :add_url => help_requesting_path(:anchor => 'missing_body')
+          :add_url => new_change_request_path
           ).html_safe %>
   </p>
 </div>

@@ -59,9 +59,9 @@
 
   <div class="sidebar__section">
     <p class="copyright-notice">
-        შენიშვნა:<br/>
-        თუ აღნიშნული მოთხოვნა სტატიაში ან აკადემიურ ნაშრომშია დამოწმებული,
-        <%= link_to "გვაცნობე", help_contact_path %>
+        <%= _('In the News') %>:<br/>
+        <%=_('Has this request been referenced in a news article or academic paper?')%>
+        <%= link_to _('Let us know'), help_contact_path %>
     </p>
   </div>
 
@@ -71,8 +71,9 @@
          board and our lawyer before changing or removing it -->
     <p class="copyright-notice">
 
-        ამ გვერდზე არსებული კომერციული მასალის საავტორო უფლებას ფლობ? 
-        <%= link_to "შეგვატყობინე", help_contact_path %>
+        <%=_('Are you the owner of any commercial copyright on this ' \
+                      'page?')%> 
+        <%= link_to _('Let us know'), help_contact_path %>
 
     </p>
   </div>
