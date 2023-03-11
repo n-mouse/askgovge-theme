@@ -2,7 +2,7 @@
   <ul id="navigation" class="navigation" role="navigation">
 
     <li class="left <%= 'selected' if controller?('request') && action?('new', 'select_authority') %>">
-        <%= link_to _("Make a request"), select_authority_path %>
+        <%= link_to _("Make a request"), list_public_bodies_default_path %>
     </li>
     <li class="left <%= 'selected' if controller?('request') && !action?('new', 'select_authority') %>">
         <%= link_to _("Browse requests"), request_list_all_path %>
