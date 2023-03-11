@@ -36,11 +36,6 @@ msgstr "განცხადების ასლს პირად ელ-�
 msgid "About {{count}} FOI requests found"
 msgstr "მოიძებნა <strong>{{count}}</strong> საჯარო ინფორმაციის მოთხოვნა"
 
-msgid ""
-"<a href=\"{{browse_url}}\">Browse all</a> or <a href=\"{{add_url}}\">ask us "
-"to add one</a>."
-msgstr "<a href=\"{{add_url}}\">მოგვმართე ახლის დამატების მოთხოვნით.</a> <a href=\"{{browse_url}}\">ყველა დაწესებულების სია (CVS)</a>"
-
 msgid "Send message to {{user_name}} just to see how it works"
 msgstr "გაუგზავნე შეტყობინება"
 
