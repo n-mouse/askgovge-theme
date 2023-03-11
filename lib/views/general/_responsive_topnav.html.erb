@@ -1,10 +1,10 @@
 <div id="topnav" class="topnav <%= @in_pro_area ? 'topnav--pro' : '' %>">
   <ul id="navigation" class="navigation" role="navigation">
 
-    <li class="<%= 'selected' if controller?('request') && action?('new', 'select_authority') %>">
+    <li class="left <%= 'selected' if controller?('request') && action?('new', 'select_authority') %>">
         <%= link_to _("Make a request"), select_authority_path %>
     </li>
-    <li class="<%= 'selected' if controller?('request') && !action?('new', 'select_authority') %>">
+    <li class="left <%= 'selected' if controller?('request') && !action?('new', 'select_authority') %>">
         <%= link_to _("Browse requests"), request_list_all_path %>
     </li>
 

@@ -498,13 +498,11 @@ a.link_button_green_large {
   a {
     @extend %menu-item;
     color: $color_white;
-    font-size: 14px;
-
     padding-top: 13px !important;
     padding-bottom: 13px !important;
 
     transition: background-color 0.2s ease-out;
-
+    
     &:hover {
       background-color: #D98940;
     }
@@ -518,6 +516,11 @@ a.link_button_green_large {
   li.selected a {
     @extend %selected-menu-item;
   }
+ 
+     li.left a {
+        font-size: 16px;
+        font-weight: 600;
+    }
 
   /* Vertically align the label image for older IE*/
   @include ie8 {
