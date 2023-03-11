@@ -60,7 +60,7 @@ msgid "Make a {{legislation}} request to this authority"
 msgstr "გამოითხოვე ინფორმაცია"
 
 msgid "About"
-msgstr "შესახებ"
+msgstr "ჩვენ შესახებ"
 
 msgid "News"
 msgstr "სიახლეები"
