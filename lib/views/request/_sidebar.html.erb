@@ -19,7 +19,10 @@
   </div>
 
   <div class="sidebar__section new-request-cta">
-    <%= render partial: 'general/new_request' %>
+    <h2 class="new-request__title"><%= _("Want to know something?") %></h2>
+    <%= link_to new_request_to_body_path(url_name: info_request.public_body.url_name), :class => "new-request__make-new-requests" do %>
+      <%= _("Make a request &raquo;") %>
+    <% end %>
   </div>
 
   <%= render partial: 'sidebar_pro_upsell' %>
