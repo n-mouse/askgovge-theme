@@ -15,6 +15,16 @@ Rails.configuration.to_prepare do
     end
     
   def new
+
+    unless authenticated?
+      ask_to_login(
+        web: _('').to_str,
+        email: _('Then your FOI request will be sent ' \
+                 'and published.'),
+        email_subject: _('Confirm your FOI request')
+      )
+      return
+    end
     # All new requests are of normal_sort
     if !params[:outgoing_message].nil?
       params[:outgoing_message][:what_doing] = 'normal_sort'
