@@ -21,11 +21,7 @@
                      filter_options,
                      prompt: _('Filter by Request Status (optional)') %>
 
-      <% if @is_you %>
-        <%= submit_tag _("Search your contributions") %>
-      <% else %>
-        <%= submit_tag _("Search contributions by this person") %>
-      <% end %>
+        <%= submit_tag _("Search") %>
     </div>
   <% end %>
 
