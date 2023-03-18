@@ -73,9 +73,9 @@ msgid "Top users"
 msgstr "ყველაზე აქტიური მომხმარებლები"
 
 msgid "Top requests"
-msgstr "ყველაზე ხშირად გამოთხოვილი"
+msgstr "ყველაზე ხშირად გამოწერილი განცხადებები"
 
-msgid "followers"
+msgid "გამომწერი"
 msgstr "გამომწერები"
 
 msgid "Your requested information"
