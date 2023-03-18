@@ -114,3 +114,9 @@ msgstr "თანახმა ვარ, რომ AskGov.ge-მ დაამუ
 
 msgid "Message to website:"
 msgstr "შეტყობინება"
+
+msgid "Everyone has the right to request and receive public information from public authorities. According to the law, they have to provide the information within 10 working days."
+msgstr "ყველა მოქალაქეს აქვს უფლება გამოითხოვოს ინფორმაცია, რომელსაც საჯარო დაწესებულებები ფლობენ. კანონი მათ ავალდებულებთ, რომ საჯარო ინფორმაცია გასცენ დაუყონებლივ ან არა უგვიანეს 10 დღისა."
+
+msgid "Follow us"
+msgstr "გამოგვყევით"
