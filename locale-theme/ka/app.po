@@ -110,4 +110,7 @@ msgid "All information on this page, including your name, will be presented publ
 msgstr "ამ გვერდზე მითითებული ყველა ინფორმაცია, მათ შორის შენი სახელი, პორტალზე საჯაროდ, განუსაზღვრელი ვადით განთავსდება"
 
 msgid "<strong>I agree</strong> to let the Askgov website collect and process my personal data"
-msgstr "თანახმა ვარ, რომ AskGov.ge-მ დაამუშავოს მითითებული პერსონალური მონაცემები - სახელი და ელ-ფოსტა":want
+msgstr "თანახმა ვარ, რომ AskGov.ge-მ დაამუშავოს მითითებული პერსონალური მონაცემები - სახელი და ელ-ფოსტა"
+
+msgid "Message to website:"
+msgstr "შეტყობინება"
