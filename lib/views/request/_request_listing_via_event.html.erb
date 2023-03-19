@@ -26,15 +26,7 @@ end %>
         <div class="requester">
 
           <%= event_description(event) %>
-          <% attachments = [] %>
-          <% event.info_request.incoming_messages.each do |im|
-            if im.get_attachments_for_display.count > 0 
-            attachments << im.get_attachments_for_display
-            end
-           end %>
-          <% if !attachments.empty? %>
-          <%= attachment_link(attachments.first.first.incoming_message, attachments.first.first) %>
-          <% end %>
+
 
         </div>
 
