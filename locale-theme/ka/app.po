@@ -123,3 +123,18 @@ msgstr "გამოგვყევით"
 
 msgid "This website has been produced with the financial assistance of the European Union. Its contents are the sole responsibility of ForSet and do not necessarily reflect the views of the European Union"
 msgstr "ეს ვებგვერდი შეიქმნა ევროკავშირის ფინანსური მხარდაჭერით. მის შინაარსზე პასუხისმგებელია ფორსეტი და იგი შეიძლება, არ გამოხატავდეს ევროკავშირის შეხედულებებს"
+
+msgid "Public information"
+msgstr "საჯარო ინფორმაცია"
+
+msgid "Information request"
+msgstr "ინფორმაციის მოთხოვნა"
+
+msgid "What to do if"
+msgstr "როგორ მოვიქცე, თუ"
+
+msgid "For public bodies"
+msgstr "საჯარო დაწესებულებებისთვის"
+
+msgid "Privacy policy"
+msgstr "კონფიდენციალურობის პოლიტიკა"
