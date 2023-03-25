@@ -843,20 +843,22 @@ a.link_button_green_large {
 }
 
 .about__partner-links {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin: 0;
   padding: 40px 0;
   flex-wrap: wrap;
   li {
     list-style: none;
-    padding: 10px 8px;
+    padding: 5px;
 
     // @media( min-width: $main_menu-mobile_menu_cutoff ) {
-
-      float: left;
-      margin-right: 47px;
       a img {
-        height: 41px;
+        height: 35px;
+      }
+      a.double-icon img {
+        height: 60px;
       }
 
       &.socials {

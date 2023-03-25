@@ -120,3 +120,6 @@ msgstr "ყველა მოქალაქეს აქვს უფლებ
 
 msgid "Follow us"
 msgstr "გამოგვყევით"
+
+msgid "This website has been produced with the financial assistance of the European Union. Its contents are the sole responsibility of ForSet and do not necessarily reflect the views of the European Union"
+msgstr "ეს ვებგვერდი შეიქმნა ევროკავშირის ფინანსური მხარდაჭერით. მის შინაარსზე პასუხისმგებელია ფორსეტი და იგი შეიძლება, არ გამოხატავდეს ევროკავშირის შეხედულებებს"
