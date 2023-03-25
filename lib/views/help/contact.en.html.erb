@@ -1,0 +1,81 @@
+<% @title = "Contact us" %>
+
+<%= foi_error_messages_for :contact %>
+
+<h1><%= @title %></h1>
+
+<div id="contact_preamble" class="contact_preamble">
+
+  <% if !flash[:notice] %>
+    <h2>Contact the public institution for official information    </h2>
+    <ul>
+      <li>Visit <a href="<%= new_request_path %>">this link </a> to request information from public institutions.</li>
+
+      <li>
+      Would you like to request information about yourself? Read  <a href="https://askgov.ge/ka/help/requesting#data_protection">help page</a>.
+      </li>
+    </ul>
+
+  <% end %>
+
+  <h2>Contact Askgov.ge team  </h2>
+  <% if !flash[:notice] %>
+    <ul>
+      <li>
+      Before writing to us, please read <a href="<%= help_about_path %>">the help page</a> first , as it may help you get an answer to your question faster. </li>
+
+      <li>We would love to hear about your experience using this website. To contact us, you can fill out this form or send us a message at info@forset.ge</a>
+      </li>
+
+      <li>We are an NGO and do not represent any government agency.</li>
+    </ul>
+  <% end %>
+</div>
+
+<%= form_for :contact do |f| %>
+
+  <% if not @user %>
+    <p>
+      <label class="form_label" for="contact_name"><%= _("Your name:") %></label>
+      <%= f.text_field :name, :size => 20 %>
+       (<%= link_to _("sign in"), signin_path(:r => request.fullpath) %>)
+    </p>
+
+    <p>
+      <label class="form_label" for="contact_email"><%= _("Your email:") %></label>
+      <%= f.text_field :email, :size => 20 %>
+    </p>
+  <% end %>
+
+  <p>
+    <label class="form_label" for="contact_subject"><%= _("Subject:") %></label>
+    <%= f.text_field :subject, :size => 50 %>
+  </p>
+
+  <p>
+    <label class="form_label" for="contact_message"><%= _("Message to website:") %></label>
+    <%= f.text_area :message, :rows => 10, :cols => 60 %>
+  </p>
+
+  <p style="display:none;">
+    <%= f.label :comment, 'Do not fill in this field' %>
+    <%= f.text_field :comment %>
+  </p>
+
+
+  <p class="form_note">
+  We can only help you with technical problems or issues related to information disclosure.
+
+  </p>
+  
+  <% if @recaptcha_required %>
+    <%= recaptcha_tags %><br />
+  <% end %>
+
+  <div class="form_button">
+    <%= hidden_field_tag(:submitted_contact_form, 1) %>
+    <%= submit_tag "Send us a message", :data => { :disable_with => "Sending..." } %>
+    &lt;-- This website is run by us, not the government!
+  </div>
+
+<% end %>
