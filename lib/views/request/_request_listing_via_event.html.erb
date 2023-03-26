@@ -18,6 +18,29 @@ end %>
 
     <span class="desc">
       <%= highlight_and_excerpt(event.search_text_main(true), @highlight_words, 150) %>
+      <% attachments = [] %>
+      <% event.info_request.incoming_messages.each do |im|
+        im.foi_attachments.each do |a|
+          if a.content_type=="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" ||
+            a.content_type=="application/vnd.ms-excel"
+              attachments << a
+          end
+        end
+       end %>
+      <% if !attachments.empty? %>
+        <% if attachments.count > 3 %>
+          <% attachments[0..2].each do |a| %>
+            <p style="display:flex;align-items:center"><%= attachment_link(a.incoming_message, a) %> 
+            <span><%= link_to a.display_filename, attachment_path(a) %></span></p>
+          <% end %>
+          <p>This request has <%= attachments.count %> xlsx attachments</p>
+        <% else %>
+          <% attachments.each do |a| %>
+            <p style="display:flex;align-items:center"><%= attachment_link(a.incoming_message, a) %> 
+            <span><%= link_to a.display_filename, attachment_path(a) %></span></p>
+          <% end %>
+        <% end %>
+      <% end %>
     </span>
 
   </div>
