@@ -574,3 +574,14 @@ div.pagination {
 
 
 }
+
+
+.xls-attachments-list {
+    display: flex;
+
+    span {
+        display: flex;
+        align-items: center;
+        margin-right: 15px;
+    }
+}
