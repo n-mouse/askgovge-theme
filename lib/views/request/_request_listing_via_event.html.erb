@@ -29,16 +29,20 @@ end %>
        end %>
       <% if !attachments.empty? %>
         <% if attachments.count > 3 %>
+          <p>
           <% attachments[0..2].each do |a| %>
-            <p style="display:flex;align-items:center"><%= attachment_link(a.incoming_message, a) %> 
-            <span><%= link_to a.display_filename, attachment_path(a) %></span></p>
+            <span style="display:flex;align-items:center; margin-right:10px"><%= attachment_link(a.incoming_message, a) %> 
+            <%= link_to a.display_filename, attachment_path(a) %></span>
           <% end %>
+          </p>
           <p>This request has <%= attachments.count %> xlsx attachments</p>
         <% else %>
+          <p>
           <% attachments.each do |a| %>
-            <p style="display:flex;align-items:center"><%= attachment_link(a.incoming_message, a) %> 
-            <span><%= link_to a.display_filename, attachment_path(a) %></span></p>
+            <span style="display:flex;align-items:center; margin-right:10px"><%= attachment_link(a.incoming_message, a) %> 
+            <%= link_to a.display_filename, attachment_path(a) %></span>
           <% end %>
+          </p>
         <% end %>
       <% end %>
     </span>
